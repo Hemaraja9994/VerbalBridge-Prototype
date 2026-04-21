@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "id": "daily_living",
+      "name": "Daily Living",
+      "items": [
+        {
+          "id": "item_001",
+          "target_en": "Water",
+          "target_kn": "ನೀರು",
+          "image_url": "assets/images/water.png",
+          "cues": {
+            "en": {
+              "level_1_semantic": "You drink this when you are thirsty.",
+              "level_2_phonological": "It starts with the sound 'Wa...'",
+              "level_3_restoration": "Water"
+            },
+            "kn": {
+              "level_1_semantic": "ಬಾಯಾರಿಕೆಯಾದಾಗ ಇದನ್ನು ಕುಡಿಯುತ್ತೀರಿ.",
+              "level_2_phonological": "ಇದು 'ನೀ' ಅಕ್ಷರದಿಂದ ಶುರುವಾಗುತ್ತದೆ.",
+              "level_3_restoration": "ನೀರು"
+            }
+          }
+        },
+        {
+          "id": "item_002",
+          "target_en": "Medicine",
+          "target_kn": "ಮಾತ್ರೆ",
+          "image_url": "assets/images/medicine.png",
+          "cues": {
+            "en": {
+              "level_1_semantic": "You take this to feel better when you are sick.",
+              "level_2_phonological": "It starts with 'Me...'",
+              "level_3_restoration": "Medicine"
+            },
+            "kn": {
+              "level_1_semantic": "ಹುಷಾರಿಲ್ಲದಿದ್ದಾಗ ಗುಣವಾಗಲು ಇದನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತೀರಿ.",
+              "level_2_phonological": "ಇದು 'ಮಾ' ಅಕ್ಷರದಿಂದ ಶುರುವಾಗುತ್ತದೆ.",
+              "level_3_restoration": "ಮಾತ್ರೆ"
+            }
+          }
+        },
+        {
+          "id": "item_003",
+          "target_en": "Phone",
+          "target_kn": "ಫೋನ್",
+          "image_url": "assets/images/phone.png",
+          "cues": {
+            "en": {
+              "level_1_semantic": "You use this to call your family.",
+              "level_2_phonological": "Starts with the sound 'Ph...'",
+              "level_3_restoration": "Phone"
+            },
+            "kn": {
+              "level_1_semantic": "ಮನೆಯವರಿಗೆ ಕರೆ ಮಾಡಲು ಇದನ್ನು ಬಳಸುತ್ತೀರಿ.",
+              "level_2_phonological": "ಇದು 'ಫೋ' ಅಕ್ಷರದಿಂದ ಶುರುವಾಗುತ್ತದೆ.",
+              "level_3_restoration": "ಫೋನ್"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

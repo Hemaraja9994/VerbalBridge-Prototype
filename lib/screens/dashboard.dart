@@ -1,97 +1,139 @@
 import 'package:flutter/material.dart';
+import '../widgets/clinical_card.dart';
 import 'assessment_screen.dart';
 import 'cilt_screen.dart';
+import 'cueing_screen.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF1A237E);
+    const navy = Color(0xFF1A237E);
+    const orange = Color(0xFFFF6D00);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("VERBALBRIDGE", style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.5)),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          _buildHeader(),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(20),
-              children: [
-                _navCard(
-                  context, 
-                  "Aphasia Profile", 
-                  "Clinical Assessment & WAB-R Scoring", 
-                  const AssessmentScreen(), 
-                  Icons.analytics_rounded
+      backgroundColor: const Color(0xFFF5F7FA),
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Clinical Header
+            Container(
+              padding: const EdgeInsets.all(32),
+              decoration: const BoxDecoration(
+                color: navy,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
                 ),
-                const SizedBox(height: 15),
-                _navCard(
-                  context, 
-                  "Speech Regeneration", 
-                  "CILT Verbatim Module", 
-                  const CiltScreen(), 
-                  Icons.record_voice_over_rounded
-                ),
-                const SizedBox(height: 15),
-                _navCard(
-                  context, 
-                  "Adaptive Cueing", 
-                  "Semantic Hierarchy Module", 
-                  const CiltScreen(), // Placeholder for Cueing
-                  Icons.psychology_rounded
-                ),
-              ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "VerbalBridge",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: -1,
+                            ),
+                          ),
+                          Text(
+                            "Neural Regeneration Pilot",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          // TODO: Implement Sarvam TTS Audio Introduction
+                        },
+                        icon: const Icon(Icons.help_outline, color: orange, size: 32),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildHeader() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-      decoration: const BoxDecoration(
-        color: Color(0xFF1A237E),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+            // Modules
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(24),
+                children: [
+                  const Text(
+                    "CLINICAL MODULES",
+                    style: TextStyle(
+                      color: navy,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  ClinicalCard(
+                    title: "Phase 1: Diagnosis",
+                    subtitle: "WAB-R Assessment & AQ Profiling",
+                    icon: Icons.analytics_rounded,
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AssessmentScreen())),
+                  ),
+                  const SizedBox(height: 16),
+                  ClinicalCard(
+                    title: "Phase 2: Regen",
+                    subtitle: "CILT Intensive Visual Trials",
+                    icon: Icons.record_voice_over,
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CiltScreen())),
+                  ),
+                  const SizedBox(height: 16),
+                  ClinicalCard(
+                    title: "Phase 3: Adaptive",
+                    subtitle: "Semantic Hierarchy Cueing",
+                    icon: Icons.psychology,
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CueingScreen())),
+                  ),
+                  const SizedBox(height: 32),
+                  
+                  // Diagnostic Insights
+                  Container(
+                    padding: const EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: orange.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(color: orange.withOpacity(0.2)),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.auto_awesome, color: orange),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            "System ready for baseline assessment. Select Phase 1 to begin.",
+                            style: TextStyle(
+                              color: navy,
+                              fontWeight: FontWeight.w600,
+                              height: 1.4,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Welcome Back,", style: TextStyle(color: Colors.white70, fontSize: 16)),
-          SizedBox(height: 5),
-          Text("Clinician Portal", style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
-        ],
-      ),
-    );
-  }
-
-  Widget _navCard(BuildContext context, String title, String sub, Widget target, IconData icon) {
-    return Card(
-      elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        leading: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: const Color(0xFF1A237E).withOpacity(0.1),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Icon(icon, color: const Color(0xFF1A237E)),
-        ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-        subtitle: Text(sub, style: const TextStyle(fontSize: 14)),
-        trailing: const Icon(Icons.chevron_right, color: Colors.orange),
-        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => target)),
       ),
     );
   }
