@@ -1,160 +1,317 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Activity, 
+  Mic, 
+  Settings, 
+  User, 
+  BrainCircuit, 
+  ChevronRight,
+  Volume2,
+  Sparkles,
+  ShieldCheck,
+  Languages,
+  LayoutDashboard,
+  CheckCircle2,
+  Zap,
+  Info,
+  RotateCcw
+} from 'lucide-react';
 
-// ─── STIMULI LIBRARY (Updated with TA, TE, ML) ──────────────────────────────
-const STIMULI = [
-  { id: '1', emoji: '💧', en: 'WATER', kn: 'ನೀರು', hi: 'पानी', ta: 'தண்ணீர்', te: 'నీరు', ml: 'വെള്ളം' },
-  { id: '2', emoji: '💊', en: 'MEDICINE', kn: 'ಮಾತ್ರೆ', hi: 'दवाई', ta: 'மருந்து', te: 'మందు', ml: 'മരുന്ന്' },
-  { id: '3', emoji: '📱', en: 'PHONE', kn: 'ಫೋನ್', hi: 'फ़ोन', ta: 'தொலைபேசி', te: 'ఫోన్', ml: 'ഫോൺ' },
-  { id: '4', emoji: '🍽️', en: 'PLATE', kn: 'ತಟ್ಟೆ', hi: 'थाली', ta: 'தட்டு', te: 'కంచం', ml: 'പ്ലേറ്റ്' },
-  { id: '5', emoji: '🥄', en: 'SPOON', kn: 'ಚಮಚ', hi: 'चम्मच', ta: 'ஸ்பூன்', te: 'చెంచా', ml: 'സ്പൂൺ' }
-];
+// --- Clinical Logic ---
+const calculateAQ = (f, c, r, n) => {
+  const aq = (f + c + r + n) * 2.5;
+  let type = "Anomic Aphasia";
+  let color = "#0D9488"; // Teal
+  let desc = "Mild word-finding difficulties.";
 
-// ─── ICONS ──────────────────────────────────────────────────────────────────
-const Icon = ({ d }) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d={d}/></svg>
-);
-const IcoDash = () => <Icon d="M3 9h18M3 15h18M9 3v18" />;
-const IcoDiag = () => <Icon d="M22 12h-4l-3 9L9 3l-3 9H2" />;
-const IcoRegen = () => <Icon d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3zM19 10v2a7 7 0 0 1-14 0v-2" />;
-const IcoAdap = () => <Icon d="M9.663 17h4.673M12 3v1" />;
-const IcoReport = () => <Icon d="M14 2v6h6M16 13H8M16 17H8" />;
+  if (aq < 25) {
+    type = "Global Aphasia";
+    color = "#EF4444"; // Red
+    desc = "Severe across all modalities.";
+  } else if (f < 5 && c >= 5) {
+    type = "Broca's Aphasia";
+    color = "#F59E0B"; // Amber
+    desc = "Agrammatic speech, comprehension preserved.";
+  } else if (f >= 5 && c < 5) {
+    type = "Wernicke's Aphasia";
+    color = "#8B5CF6"; // Purple
+    desc = "Fluent but paraphasic output.";
+  } else if (r < 5) {
+    type = "Conduction Aphasia";
+    color = "#3B82F6"; // Blue
+    desc = "Primary repetition deficit.";
+  }
 
-// ─── SPEECH ENGINE (Sarvam AI Ready) ────────────────────────────────────────
-const speak = (text, lang) => {
-  window.speechSynthesis.cancel();
-  const langMap = { en: 'en-US', kn: 'kn-IN', hi: 'hi-IN', ta: 'ta-IN', te: 'te-IN', ml: 'ml-IN' };
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = langMap[lang] || 'en-US';
-  utt.rate = 0.7; // Clinical slow rate
-  window.speechSynthesis.speak(utt);
+  return { aq, type, desc, color };
 };
 
+// --- Animations ---
+const fadeIn = { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -10 } };
+const scaleUp = { initial: { scale: 0.95, opacity: 0 }, animate: { scale: 1, opacity: 1 }, transition: { type: 'spring', damping: 20 } };
+
 export default function App() {
-  const [phase, setPhase] = useState('regen');
-  const [lang, setLang] = useState('kn');
-  const [activeStim, setActiveStim] = useState(STIMULI[0]);
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [scores, setScores] = useState({ f: 5, c: 5, r: 5, n: 5 });
+  const [isRecording, setIsRecording] = useState(false);
+  const [regenStatus, setRegenStatus] = useState('idle'); // idle, processing, done
+
+  const result = calculateAQ(scores.f, scores.c, scores.r, scores.n);
 
   return (
-    <div className="flex h-screen bg-slate-50 font-sans text-slate-900">
-      {/* ── Sidebar (Original Navy Design) ── */}
-      <aside className="w-64 bg-[#0D1757] flex flex-col p-6 text-white">
-        <div className="flex items-center gap-3 mb-10">
-          <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center">
-            <Icon d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </div>
-          <div>
-            <h1 className="font-black text-lg leading-tight">VerbalBridge</h1>
-            <p className="text-[10px] text-indigo-300 font-bold tracking-widest uppercase">Neural Regen Pilot</p>
-          </div>
+    <div style={{ minHeight: '100vh', background: '#F8FAFC', color: '#0F172A', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+      
+      {/* Sidebar Navigation (Mockup) */}
+      <nav style={{ 
+        position: 'fixed', left: 0, top: 0, bottom: 0, width: '80px', 
+        background: '#0F172A', display: 'flex', flexDirection: 'column', 
+        alignItems: 'center', padding: '2rem 0', gap: '2.5rem', zIndex: 100 
+      }}>
+        <div style={{ background: '#1D4ED8', padding: '0.75rem', borderRadius: '12px', color: 'white' }}><BrainCircuit size={28} /></div>
+        <div onClick={() => setActiveTab('dashboard')} style={{ cursor: 'pointer', color: activeTab === 'dashboard' ? 'white' : '#64748B' }}><LayoutDashboard size={24} /></div>
+        <div onClick={() => setActiveTab('assessment')} style={{ cursor: 'pointer', color: activeTab === 'assessment' ? 'white' : '#64748B' }}><Activity size={24} /></div>
+        <div onClick={() => setActiveTab('cilt')} style={{ cursor: 'pointer', color: activeTab === 'cilt' ? 'white' : '#64748B' }}><Mic size={24} /></div>
+        <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
+          <Settings size={20} color="#64748B" />
+          <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#64748B', border: '2px solid white' }} />
         </div>
+      </nav>
 
-        <nav className="flex-1 space-y-2">
-          <SidebarLink icon={<IcoDash/>} label="Dashboard" />
-          <div className="pt-6 pb-2 text-[10px] font-black text-indigo-400 tracking-widest">CLINICAL PHASES</div>
-          <SidebarLink icon={<IcoDiag/>} label="Phase 1: Diagnosis" />
-          <SidebarLink icon={<IcoRegen/>} label="Phase 2: Regen" active />
-          <SidebarLink icon={<IcoAdap/>} label="Phase 3: Adaptive" />
-          <SidebarLink icon={<IcoReport/>} label="Session Report" />
-        </nav>
-
-        <div className="mt-auto p-4 bg-white/5 rounded-2xl flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-indigo-400 flex items-center justify-center font-bold text-xs">DR</div>
-          <div>
-            <p className="text-xs font-bold">Dr. Hemaraja</p>
-            <p className="text-[9px] text-indigo-300">Senior SLP · AIISH</p>
-          </div>
-        </div>
-      </aside>
-
-      {/* ── Main Workspace ── */}
-      <main className="flex-1 p-10 overflow-y-auto">
-        <header className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="text-3xl font-black text-slate-800">Phase 2: Regen</h2>
-            <p className="text-slate-400 font-medium">Constraint-Induced Language Therapy (CILT) — Forced Verbal Protocol</p>
-          </div>
+      {/* Main Content Area */}
+      <main style={{ marginLeft: '80px', padding: '3rem' }}>
+        
+        <AnimatePresence mode="wait">
           
-          {/* MULTILINGUAL SELECTOR */}
-          <div className="flex bg-slate-200 p-1 rounded-xl gap-1">
-            {['EN', 'KN', 'TA', 'TE', 'ML', 'HI'].map(l => (
-              <button 
-                key={l}
-                onClick={() => setLang(l.toLowerCase())}
-                className={`px-4 py-1.5 rounded-lg text-xs font-black transition-all ${lang === l.toLowerCase() ? 'bg-[#FF6D00] text-white shadow-lg' : 'text-slate-500 hover:text-slate-800'}`}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
-        </header>
+          {/* DASHBOARD */}
+          {activeTab === 'dashboard' && (
+            <motion.div key="dash" {...fadeIn}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3rem' }}>
+                <div>
+                  <h1 style={{ fontSize: '2.25rem', fontWeight: 800, letterSpacing: '-0.02em' }}>Dashboard</h1>
+                  <p style={{ color: '#64748B', fontSize: '1.1rem' }}>Clinical Overview — <span style={{ fontWeight: 700, color: '#0F172A' }}>VerbalBridge v1.0</span></p>
+                </div>
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                    <div style={{ textAlign: 'right' }}>
+                        <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B' }}>LAST ASSESSMENT</p>
+                        <p style={{ fontSize: '0.9rem', fontWeight: 700 }}>21 Apr 2026</p>
+                    </div>
+                </div>
+              </div>
 
-        {/* Stimulus Tabs */}
-        <div className="flex gap-3 mb-10">
-          {STIMULI.map(s => (
-            <button 
-              key={s.id}
-              onClick={() => setActiveStim(s)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-black transition-all border-2 ${activeStim.id === s.id ? 'bg-[#1A237E] border-[#1A237E] text-white shadow-xl' : 'bg-white border-slate-100 text-slate-400 hover:border-slate-300'}`}
-            >
-              <span className="text-lg">{s.emoji}</span> {s.en}
-            </button>
-          ))}
-        </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+                <div className="card-clinical" onClick={() => setActiveTab('assessment')}>
+                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+                      <div style={{ padding: '0.75rem', background: '#F1F5F9', borderRadius: '10px' }}><Activity color="#0F172A" /></div>
+                      <ChevronRight size={18} color="#94A3B8" />
+                   </div>
+                   <h3 style={{ marginBottom: '0.5rem' }}>WAB-R Profile</h3>
+                   <p style={{ fontSize: '0.85rem', color: '#64748B' }}>Score: {result.aq.toFixed(1)} — {result.type}</p>
+                </div>
 
-        <div className="grid grid-cols-2 gap-8">
-          {/* Stimulus Display */}
-          <div className="bg-white rounded-[32px] p-12 shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-8 text-center">
-             <div className="text-8xl mb-4">{activeStim.emoji}</div>
-             <div>
-               <p className="text-[10px] font-black text-slate-300 tracking-[0.2em] mb-2">TARGET WORD</p>
-               <h3 className="text-7xl font-black text-[#1A237E]">{activeStim[lang] || activeStim.en}</h3>
-             </div>
-             <button 
-              onClick={() => speak(activeStim[lang] || activeStim.en, lang)}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-slate-100 text-slate-500 font-bold text-sm hover:bg-slate-50"
-             >
-               <Icon d="M11 5 6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14"/> Listen (0.7x)
-             </button>
-          </div>
+                <div className="card-clinical" onClick={() => setActiveTab('cilt')}>
+                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+                      <div style={{ padding: '0.75rem', background: '#FEF3C7', borderRadius: '10px' }}><Mic color="#D97706" /></div>
+                      <ChevronRight size={18} color="#94A3B8" />
+                   </div>
+                   <h3 style={{ marginBottom: '0.5rem' }}>Speech Regeneration</h3>
+                   <p style={{ fontSize: '0.85rem', color: '#64748B' }}>Module: CILT forced verbal use.</p>
+                </div>
 
-          {/* Interaction Area */}
-          <div className="bg-white rounded-[32px] p-12 shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-8">
-            <p className="text-slate-400 font-medium text-center max-w-[200px] leading-relaxed">
-              Press and hold the microphone to begin your verbal trial.
-            </p>
-            <div className="relative">
-              <button className="w-24 h-24 bg-[#1A237E] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-105 active:scale-95 transition-all">
-                <Icon d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8" />
-              </button>
-              <div className="absolute -inset-4 border-2 border-dashed border-indigo-100 rounded-full animate-spin-slow"></div>
-            </div>
-            <p className="text-[10px] font-black text-slate-300 tracking-[0.2em]">HOLD TO SPEAK</p>
-          </div>
-        </div>
+                <div className="card-clinical">
+                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+                      <div style={{ padding: '0.75rem', background: '#F0FDF4', borderRadius: '10px' }}><BrainCircuit color="#16A34A" /></div>
+                      <ChevronRight size={18} color="#94A3B8" />
+                   </div>
+                   <h3 style={{ marginBottom: '0.5rem' }}>Adaptive Cueing</h3>
+                   <p style={{ fontSize: '0.85rem', color: '#64748B' }}>Semantic-Phonological logic hierarchy.</p>
+                </div>
+              </div>
+
+              <div style={{ background: 'white', padding: '2rem', borderRadius: '24px', border: '1px solid #E2E8F0' }}>
+                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                    <Zap size={20} color="#F59E0B" fill="#F59E0B" />
+                    <h3 style={{ fontSize: '1.25rem' }}>AI Insights</h3>
+                 </div>
+                 <div style={{ display: 'flex', gap: '2rem' }}>
+                    <div style={{ flex: 1, padding: '1.5rem', background: '#F8FAFC', borderRadius: '16px' }}>
+                       <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: '0.5rem' }}>NEURAL RECOVERY TREND</p>
+                       <p style={{ fontSize: '1.1rem', fontWeight: 600 }}>Consistent progress in naming latency. Semantic cueing efficacy at 84%.</p>
+                    </div>
+                    <div style={{ flex: 1, padding: '1.5rem', background: '#F8FAFC', borderRadius: '16px' }}>
+                       <p style={{ fontSize: '0.9rem', color: '#64748B', marginBottom: '0.5rem' }}>RECOMMENDED MODULE</p>
+                       <p style={{ fontSize: '1.1rem', fontWeight: 600 }}>CILT Intensive — Focus on multi-syllabic noun retrieval.</p>
+                    </div>
+                 </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* ASSESSMENT */}
+          {activeTab === 'assessment' && (
+            <motion.div key="assessment" {...fadeIn} style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                 <h1 style={{ fontSize: '2.5rem', fontWeight: 800 }}>Clinical Assessment</h1>
+                 <p style={{ color: '#64748B' }}>Adjust the WAB-R sub-scores below for real-time profiling.</p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '2rem', marginBottom: '3rem' }}>
+                <div style={{ flex: 1.5, background: 'white', padding: '2rem', borderRadius: '24px', border: '1px solid #E2E8F0' }}>
+                  {[
+                    { key: 'f', label: 'Fluency' },
+                    { key: 'c', label: 'Comprehension' },
+                    { key: 'r', label: 'Repetition' },
+                    { key: 'n', label: 'Naming' },
+                  ].map(item => (
+                    <div key={item.key} style={{ marginBottom: '2rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                        <label style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0F172A' }}>{item.label.toUpperCase()}</label>
+                        <span style={{ fontWeight: 800, color: '#1D4ED8' }}>{scores[item.key].toFixed(1)}</span>
+                      </div>
+                      <input 
+                        type="range" min="0" max="10" step="0.1" 
+                        value={scores[item.key]} 
+                        onChange={(e) => setScores({...scores, [item.key]: parseFloat(e.target.value)})} 
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                   <div style={{ background: '#0F172A', color: 'white', padding: '2rem', borderRadius: '24px', textAlign: 'center' }}>
+                      <p style={{ fontSize: '0.75rem', opacity: 0.6, fontWeight: 700, letterSpacing: '1px' }}>AQ SCORE</p>
+                      <h2 style={{ fontSize: '4rem', fontWeight: 800, margin: '1rem 0' }}>{result.aq.toFixed(1)}</h2>
+                      <div style={{ background: result.color + '33', border: '1px solid ' + result.color, padding: '0.5rem', borderRadius: '10px' }}>
+                        <span style={{ color: result.color, fontWeight: 800, fontSize: '0.8rem' }}>{result.type}</span>
+                      </div>
+                   </div>
+                   <div style={{ background: 'white', padding: '1.5rem', borderRadius: '24px', border: '1px solid #E2E8F0' }}>
+                      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
+                         <Info size={16} color="#64748B" />
+                         <span style={{ fontWeight: 700, fontSize: '0.8rem', color: '#64748B' }}>DESCRIPTION</span>
+                      </div>
+                      <p style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#334155' }}>{result.desc}</p>
+                   </div>
+                </div>
+              </div>
+              
+              <div style={{ textAlign: 'center' }}>
+                 <button className="btn-primary">
+                    <ShieldCheck size={20} /> SYNC TO CLINICAL CLOUD
+                 </button>
+              </div>
+            </motion.div>
+          )}
+
+          {/* CILT REGEN */}
+          {activeTab === 'cilt' && (
+            <motion.div key="cilt" {...fadeIn} style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+               <h1 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>Speech Regeneration</h1>
+               <p style={{ color: '#64748B', marginBottom: '3rem' }}>Clinical Module: CILT Verbatim Retrieval</p>
+
+               <div style={{ 
+                 background: 'white', padding: '3rem', borderRadius: '32px', 
+                 boxShadow: '0 30px 60px -12px rgba(0,0,0,0.05)', border: '1px solid #E2E8F0', 
+                 position: 'relative', overflow: 'hidden' 
+               }}>
+                  <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', display: 'flex', gap: '0.5rem' }}>
+                      <span style={{ padding: '0.4rem 0.75rem', background: '#F1F5F9', borderRadius: '10px', fontSize: '0.7rem', fontWeight: 700 }}>MONTH 1 ROADMAP</span>
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    {regenStatus === 'idle' && (
+                      <motion.div key="s1" {...scaleUp}>
+                        <div style={{ 
+                          width: '160px', height: '160px', background: '#F1F5F9', 
+                          borderRadius: '40px', margin: '0 auto 2.5rem', 
+                          display: 'flex', alignItems: 'center', justifyContent: 'center' 
+                        }}>
+                          <Volume2 size={64} color="#94A3B8" />
+                        </div>
+                        <p style={{ color: '#64748B', marginBottom: '0.5rem', fontWeight: 600 }}>Visual Stimulus Targeting</p>
+                        <h2 style={{ fontSize: '3.5rem', fontWeight: 800, color: '#0F172A', marginBottom: '3rem' }}>"WATER"</h2>
+                        
+                        <button 
+                          onMouseDown={() => setIsRecording(true)} 
+                          onMouseUp={() => { setIsRecording(false); setRegenStatus('processing'); setTimeout(() => setRegenStatus('done'), 3000); }}
+                          style={{ 
+                            background: isRecording ? '#EF4444' : '#1D4ED8', 
+                            width: '100px', height: '100px', borderRadius: '50%', 
+                            border: 'none', cursor: 'pointer', transition: 'all 0.3s',
+                            boxShadow: isRecording ? '0 0 40px rgba(239,68,68,0.4)' : '0 15px 30px rgba(29,78,216,0.2)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto'
+                          }}
+                        >
+                          <Mic color="white" size={32} />
+                        </button>
+                        <p style={{ marginTop: '1.5rem', color: isRecording ? '#EF4444' : '#64748B', fontWeight: 700 }}>{isRecording ? 'Capturing Speech...' : 'Press and Hold to Speak'}</p>
+                      </motion.div>
+                    )}
+
+                    {regenStatus === 'processing' && (
+                      <motion.div key="s2" {...scaleUp} style={{ padding: '4rem 0' }}>
+                         <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '2rem' }}>
+                            {[1,2,3,4,5].map(i => (
+                               <motion.div 
+                                 key={i}
+                                 animate={{ height: [20, 60, 20] }}
+                                 transition={{ repeat: Infinity, duration: 0.6, delay: i*0.1 }}
+                                 style={{ width: '6px', background: '#0D9488', borderRadius: '10px' }}
+                                />
+                            ))}
+                         </div>
+                         <h3 style={{ fontSize: '1.5rem', fontWeight: 700 }}>AI Regeneration Engine</h3>
+                         <p style={{ color: '#64748B' }}>Normalizing phonemic pathways for 'Saaras' output...</p>
+                      </motion.div>
+                    )}
+
+                    {regenStatus === 'done' && (
+                      <motion.div key="s3" {...scaleUp}>
+                         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+                            <div style={{ background: '#F0FDF4', padding: '1rem', borderRadius: '20px', color: '#16A34A' }}>
+                               <CheckCircle2 size={48} />
+                            </div>
+                         </div>
+                         <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1rem' }}>Speech Regenerated</h2>
+                         <div style={{ background: '#F8FAFC', padding: '1.5rem', borderRadius: '20px', marginBottom: '2rem', border: '1px dashed #CBD5E1' }}>
+                            <p style={{ fontSize: '1.25rem', fontWeight: 600 }}>Audio Input: <span style={{ color: '#64748B' }}>"wa... wa... ter..."</span></p>
+                            <p style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '0.5rem' }}>AI Output: <span style={{ color: '#1D4ED8' }}>"Give me water."</span></p>
+                         </div>
+                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                            <button className="btn-primary"><Play size={20} /> PLAY NORMAL</button>
+                            <button className="btn-primary" style={{ background: '#0D9488' }}><Sparkles size={20} /> PLAY CLINICAL (0.7x)</button>
+                         </div>
+                         <button onClick={() => setRegenStatus('idle')} style={{ marginTop: '2rem', background: 'none', border: 'none', color: '#64748B', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '2rem auto 0' }}>
+                            <RotateCcw size={16} /> RESTART TASK
+                         </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+               </div>
+
+               <div style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+                  <div style={{ display: 'flex', gap: '0.5rem', padding: '0.75rem 1.25rem', background: 'white', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
+                     <Languages size={18} color="#64748B" />
+                     <span style={{ fontWeight: 700, fontSize: '0.85rem' }}>Regional: CANARESE</span>
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.5rem', padding: '0.75rem 1.25rem', background: 'white', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
+                     <ShieldCheck size={18} color="#0D9488" />
+                     <span style={{ fontWeight: 700, fontSize: '0.85rem' }}>E2E ENCRYPTED (DPDP)</span>
+                  </div>
+               </div>
+            </motion.div>
+          )}
+
+        </AnimatePresence>
+
       </main>
 
-      {/* Footer Status */}
-      <div className="fixed bottom-6 right-10 flex items-center gap-4 bg-[#0D1757] text-white py-2.5 px-6 rounded-2xl shadow-2xl text-[10px] font-black tracking-widest">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-          SESSION ACTIVE
-        </div>
-        <div className="w-px h-3 bg-white/20"></div>
-        <div className="flex items-center gap-2">
-          <Icon d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-          DPDP COMPLIANT
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SidebarLink({ icon, label, active = false }) {
-  return (
-    <div className={`flex items-center gap-4 px-4 py-3 rounded-xl cursor-pointer transition-all ${active ? 'bg-indigo-600 shadow-lg' : 'hover:bg-white/5 text-indigo-200'}`}>
-      {icon}
-      <span className="text-xs font-bold">{label}</span>
+      <footer style={{ 
+        position: 'fixed', bottom: 0, right: 0, 
+        padding: '1.5rem 3rem', color: '#94A3B8', 
+        fontSize: '0.85rem', fontWeight: 600 
+      }}>
+         © 2026 VERBALBRIDGE AI • CLINICAL PILOT
+      </footer>
     </div>
   );
 }
