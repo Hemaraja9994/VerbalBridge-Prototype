@@ -1,0 +1,96 @@
+{
+  "lang": "hi",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "hi-banana",
+      "word": "केला",
+      "translit": "kelā",
+      "emoji": "🍌",
+      "semanticCue": "यह एक फल है। लंबा और पीला।",
+      "phonologicalCue": "यह /के/ से शुरू होता है…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "hi-apple",
+      "word": "सेब",
+      "translit": "seb",
+      "emoji": "🍎",
+      "semanticCue": "यह एक फल है। गोल और लाल।",
+      "phonologicalCue": "यह /से/ से शुरू होता है…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "hi-water",
+      "word": "पानी",
+      "translit": "pānī",
+      "emoji": "💧",
+      "semanticCue": "प्यास लगने पर पीते हैं।",
+      "phonologicalCue": "यह /पा/ से शुरू होता है…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "hi-cup",
+      "word": "कप",
+      "translit": "kap",
+      "emoji": "☕",
+      "semanticCue": "इसमें पीते हैं।",
+      "phonologicalCue": "यह /क/ से शुरू होता है…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "hi-chair",
+      "word": "कुर्सी",
+      "translit": "kursī",
+      "emoji": "🪑",
+      "semanticCue": "इस पर बैठते हैं।",
+      "phonologicalCue": "यह /कु/ से शुरू होता है…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "hi-bed",
+      "word": "बिस्तर",
+      "translit": "bistar",
+      "emoji": "🛏️",
+      "semanticCue": "रात को इस पर सोते हैं।",
+      "phonologicalCue": "यह /बि/ से शुरू होता है…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "hi-dog",
+      "word": "कुत्ता",
+      "translit": "kuttā",
+      "emoji": "🐕",
+      "semanticCue": "एक जानवर। भौंकता है।",
+      "phonologicalCue": "यह /कु/ से शुरू होता है…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "hi-tea",
+      "word": "चाय",
+      "translit": "chāy",
+      "emoji": "🍵",
+      "semanticCue": "एक गरम पेय।",
+      "phonologicalCue": "यह /चा/ से शुरू होता है…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "hi-book",
+      "word": "किताब",
+      "translit": "kitāb",
+      "emoji": "📖",
+      "semanticCue": "इसे पढ़ते हैं। पन्ने होते हैं।",
+      "phonologicalCue": "यह /कि/ से शुरू होता है…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "hi-house",
+      "word": "घर",
+      "translit": "ghar",
+      "emoji": "🏠",
+      "semanticCue": "जहाँ आप रहते हैं।",
+      "phonologicalCue": "यह /घ/ से शुरू होता है…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}

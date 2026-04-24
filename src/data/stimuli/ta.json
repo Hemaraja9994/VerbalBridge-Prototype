@@ -1,0 +1,96 @@
+{
+  "lang": "ta",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "ta-banana",
+      "word": "வாழைப்பழம்",
+      "translit": "vāḻaippaḻam",
+      "emoji": "🍌",
+      "semanticCue": "இது ஒரு பழம். நீளமாகவும் மஞ்சளாகவும் இருக்கும்.",
+      "phonologicalCue": "இது /வா/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "ta-apple",
+      "word": "ஆப்பிள்",
+      "translit": "āppiḷ",
+      "emoji": "🍎",
+      "semanticCue": "இது ஒரு பழம். வட்டமாகவும் சிவப்பாகவும்.",
+      "phonologicalCue": "இது /ஆ/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "ta-water",
+      "word": "தண்ணீர்",
+      "translit": "taṇṇīr",
+      "emoji": "💧",
+      "semanticCue": "தாகமாக இருக்கும்போது குடிப்பீர்கள்.",
+      "phonologicalCue": "இது /த/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "ta-cup",
+      "word": "கோப்பை",
+      "translit": "kōppai",
+      "emoji": "☕",
+      "semanticCue": "இதில் குடிப்பீர்கள்.",
+      "phonologicalCue": "இது /கோ/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "ta-chair",
+      "word": "நாற்காலி",
+      "translit": "nāṟkāli",
+      "emoji": "🪑",
+      "semanticCue": "இதில் அமருவீர்கள்.",
+      "phonologicalCue": "இது /நா/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "ta-bed",
+      "word": "படுக்கை",
+      "translit": "paṭukkai",
+      "emoji": "🛏️",
+      "semanticCue": "இரவில் இதில் தூங்குவீர்கள்.",
+      "phonologicalCue": "இது /ப/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "ta-dog",
+      "word": "நாய்",
+      "translit": "nāy",
+      "emoji": "🐕",
+      "semanticCue": "ஒரு மிருகம். குரைக்கும்.",
+      "phonologicalCue": "இது /நா/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "ta-tea",
+      "word": "தேநீர்",
+      "translit": "tēnīr",
+      "emoji": "🍵",
+      "semanticCue": "ஒரு சூடான பானம்.",
+      "phonologicalCue": "இது /தே/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "ta-book",
+      "word": "புத்தகம்",
+      "translit": "puttakam",
+      "emoji": "📖",
+      "semanticCue": "இதைப் படிப்பீர்கள். பக்கங்கள் உள்ளன.",
+      "phonologicalCue": "இது /பு/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "ta-house",
+      "word": "வீடு",
+      "translit": "vīṭu",
+      "emoji": "🏠",
+      "semanticCue": "நீங்கள் வசிக்கும் இடம்.",
+      "phonologicalCue": "இது /வீ/ என்று தொடங்குகிறது…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}

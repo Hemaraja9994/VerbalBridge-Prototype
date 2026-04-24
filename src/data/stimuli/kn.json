@@ -1,0 +1,96 @@
+{
+  "lang": "kn",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "kn-banana",
+      "word": "ಬಾಳೆಹಣ್ಣು",
+      "translit": "bāḷehaṇṇu",
+      "emoji": "🍌",
+      "semanticCue": "ಇದು ಒಂದು ಹಣ್ಣು. ಉದ್ದ ಮತ್ತು ಹಳದಿ ಬಣ್ಣ.",
+      "phonologicalCue": "ಇದು /ಬಾ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "kn-apple",
+      "word": "ಸೇಬು",
+      "translit": "sēbu",
+      "emoji": "🍎",
+      "semanticCue": "ಇದು ಒಂದು ಹಣ್ಣು. ದುಂಡಾಗಿದ್ದು ಕೆಂಪು ಬಣ್ಣ.",
+      "phonologicalCue": "ಇದು /ಸೇ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "kn-water",
+      "word": "ನೀರು",
+      "translit": "nīru",
+      "emoji": "💧",
+      "semanticCue": "ಬಾಯಾರಿಕೆಯಾದಾಗ ಕುಡಿಯುತ್ತೀರಿ.",
+      "phonologicalCue": "ಇದು /ನೀ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "kn-cup",
+      "word": "ಲೋಟ",
+      "translit": "lōṭa",
+      "emoji": "☕",
+      "semanticCue": "ಇದರಲ್ಲಿ ಕುಡಿಯುತ್ತೀರಿ.",
+      "phonologicalCue": "ಇದು /ಲೋ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "kn-chair",
+      "word": "ಕುರ್ಚಿ",
+      "translit": "kurchi",
+      "emoji": "🪑",
+      "semanticCue": "ಇದರ ಮೇಲೆ ಕುಳಿತುಕೊಳ್ಳುತ್ತೀರಿ.",
+      "phonologicalCue": "ಇದು /ಕು/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "kn-bed",
+      "word": "ಹಾಸಿಗೆ",
+      "translit": "hāsige",
+      "emoji": "🛏️",
+      "semanticCue": "ರಾತ್ರಿ ಇದರ ಮೇಲೆ ಮಲಗುತ್ತೀರಿ.",
+      "phonologicalCue": "ಇದು /ಹಾ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "kn-dog",
+      "word": "ನಾಯಿ",
+      "translit": "nāyi",
+      "emoji": "🐕",
+      "semanticCue": "ಇದು ಪ್ರಾಣಿ. ಬೊಗಳುತ್ತದೆ.",
+      "phonologicalCue": "ಇದು /ನಾ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "kn-tea",
+      "word": "ಚಹಾ",
+      "translit": "chahā",
+      "emoji": "🍵",
+      "semanticCue": "ಬಿಸಿಯಾದ ಪಾನೀಯ.",
+      "phonologicalCue": "ಇದು /ಚ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "kn-book",
+      "word": "ಪುಸ್ತಕ",
+      "translit": "pustaka",
+      "emoji": "📖",
+      "semanticCue": "ಇದನ್ನು ಓದುತ್ತೀರಿ. ಪುಟಗಳಿವೆ.",
+      "phonologicalCue": "ಇದು /ಪು/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "kn-house",
+      "word": "ಮನೆ",
+      "translit": "mane",
+      "emoji": "🏠",
+      "semanticCue": "ನೀವು ವಾಸಿಸುವ ಸ್ಥಳ.",
+      "phonologicalCue": "ಇದು /ಮ/ ಎಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}

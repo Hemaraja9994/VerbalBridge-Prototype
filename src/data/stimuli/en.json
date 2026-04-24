@@ -1,0 +1,86 @@
+{
+  "lang": "en",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "en-banana",
+      "word": "Banana",
+      "emoji": "🍌",
+      "semanticCue": "It is a fruit. It is long and yellow.",
+      "phonologicalCue": "It starts with /ba/…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "en-apple",
+      "word": "Apple",
+      "emoji": "🍎",
+      "semanticCue": "It is a fruit. It is round and red.",
+      "phonologicalCue": "It starts with /æ/…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "en-water",
+      "word": "Water",
+      "emoji": "💧",
+      "semanticCue": "You drink it when you are thirsty.",
+      "phonologicalCue": "It starts with /wɔ/…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "en-cup",
+      "word": "Cup",
+      "emoji": "☕",
+      "semanticCue": "You drink from it. It has a handle.",
+      "phonologicalCue": "It starts with /k/…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "en-chair",
+      "word": "Chair",
+      "emoji": "🪑",
+      "semanticCue": "You sit on it. It has four legs.",
+      "phonologicalCue": "It starts with /tʃ/…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "en-bed",
+      "word": "Bed",
+      "emoji": "🛏️",
+      "semanticCue": "You sleep on it at night.",
+      "phonologicalCue": "It starts with /b/…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "en-dog",
+      "word": "Dog",
+      "emoji": "🐕",
+      "semanticCue": "It is an animal. It barks.",
+      "phonologicalCue": "It starts with /d/…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "en-tea",
+      "word": "Tea",
+      "emoji": "🍵",
+      "semanticCue": "A hot drink. Brown in colour.",
+      "phonologicalCue": "It starts with /t/…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "en-book",
+      "word": "Book",
+      "emoji": "📖",
+      "semanticCue": "You read it. It has pages.",
+      "phonologicalCue": "It starts with /b/…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "en-house",
+      "word": "House",
+      "emoji": "🏠",
+      "semanticCue": "A place where you live.",
+      "phonologicalCue": "It starts with /h/…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}

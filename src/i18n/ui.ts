@@ -1,0 +1,268 @@
+import type { LangCode } from '../types';
+
+export const LANG_META: Record<LangCode, { label: string; native: string; bcp47: string }> = {
+  en: { label: 'English',   native: 'English',   bcp47: 'en-IN' },
+  kn: { label: 'Kannada',   native: 'ಕನ್ನಡ',      bcp47: 'kn-IN' },
+  hi: { label: 'Hindi',     native: 'हिन्दी',      bcp47: 'hi-IN' },
+  ml: { label: 'Malayalam', native: 'മലയാളം',    bcp47: 'ml-IN' },
+  ta: { label: 'Tamil',     native: 'தமிழ்',      bcp47: 'ta-IN' },
+  te: { label: 'Telugu',    native: 'తెలుగు',     bcp47: 'te-IN' },
+};
+
+export interface UILabels {
+  chooseLanguage: string;
+  chooseAphasia: string;
+  therapyHub: string;
+  cilt: string;
+  ciltDesc: string;
+  cueing: string;
+  cueingDesc: string;
+  comprehension: string;
+  comprehensionDesc: string;
+  listen: string;
+  giveCue: string;
+  semanticCue: string;
+  phonologicalCue: string;
+  modelCue: string;
+  produced: string;
+  approximated: string;
+  notAttempted: string;
+  next: string;
+  back: string;
+  sessionComplete: string;
+  progress: string;
+  exportCsv: string;
+  pickPicture: string;
+  futureScope: string;
+  voiceClone: string;
+  gesture: string;
+  comingSoon: string;
+}
+
+export const UI: Record<LangCode, UILabels> = {
+  en: {
+    chooseLanguage: 'Choose your language',
+    chooseAphasia: 'Select aphasia type',
+    therapyHub: 'Therapy Hub',
+    cilt: 'CILT Drill',
+    ciltDesc: 'Constraint-Induced practice — look, listen, speak.',
+    cueing: 'Cueing Hierarchy',
+    cueingDesc: 'Word retrieval with staged semantic → phonological → model cues.',
+    comprehension: 'Comprehension Practice',
+    comprehensionDesc: 'Listen to a word and point to the matching picture.',
+    listen: 'Listen',
+    giveCue: 'Give Cue',
+    semanticCue: 'Semantic cue',
+    phonologicalCue: 'Phonological cue',
+    modelCue: 'Model (full word)',
+    produced: 'Produced',
+    approximated: 'Approximated',
+    notAttempted: 'Not attempted',
+    next: 'Next',
+    back: 'Back',
+    sessionComplete: 'Session complete',
+    progress: 'Progress',
+    exportCsv: 'Export session (CSV)',
+    pickPicture: 'Tap the matching picture',
+    futureScope: 'Future Scope (with YTI)',
+    voiceClone: 'Voice Cloning',
+    gesture: 'Gesture Module',
+    comingSoon: 'Coming soon',
+  },
+  kn: {
+    chooseLanguage: 'ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
+    chooseAphasia: 'ಅಫೇಸಿಯಾ ಪ್ರಕಾರ ಆರಿಸಿ',
+    therapyHub: 'ಚಿಕಿತ್ಸಾ ಕೇಂದ್ರ',
+    cilt: 'CILT ಅಭ್ಯಾಸ',
+    ciltDesc: 'ನೋಡಿ, ಕೇಳಿ, ಹೇಳಿ — ನಿರ್ಬಂಧಿತ ಅಭ್ಯಾಸ.',
+    cueing: 'ಸೂಚನಾ ಶ್ರೇಣಿ',
+    cueingDesc: 'ಅರ್ಥ → ಧ್ವನಿ → ಮಾದರಿ ಸೂಚನೆಗಳೊಂದಿಗೆ ಪದ ಸ್ಮರಣೆ.',
+    comprehension: 'ಗ್ರಹಣ ಅಭ್ಯಾಸ',
+    comprehensionDesc: 'ಪದವನ್ನು ಕೇಳಿ ಸರಿಯಾದ ಚಿತ್ರವನ್ನು ತೋರಿಸಿ.',
+    listen: 'ಕೇಳಿ',
+    giveCue: 'ಸೂಚನೆ ನೀಡಿ',
+    semanticCue: 'ಅರ್ಥ ಸೂಚನೆ',
+    phonologicalCue: 'ಧ್ವನಿ ಸೂಚನೆ',
+    modelCue: 'ಸಂಪೂರ್ಣ ಪದ',
+    produced: 'ಹೇಳಿದರು',
+    approximated: 'ಹತ್ತಿರ ಬಂದರು',
+    notAttempted: 'ಪ್ರಯತ್ನಿಸಲಿಲ್ಲ',
+    next: 'ಮುಂದೆ',
+    back: 'ಹಿಂದೆ',
+    sessionComplete: 'ಅವಧಿ ಪೂರ್ಣಗೊಂಡಿದೆ',
+    progress: 'ಪ್ರಗತಿ',
+    exportCsv: 'ಅವಧಿಯನ್ನು ರಫ್ತು ಮಾಡಿ (CSV)',
+    pickPicture: 'ಸರಿಯಾದ ಚಿತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ',
+    futureScope: 'ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (YTI)',
+    voiceClone: 'ಧ್ವನಿ ಪುನರುತ್ಪಾದನೆ',
+    gesture: 'ಸನ್ನೆ ಮಾಡ್ಯೂಲ್',
+    comingSoon: 'ಶೀಘ್ರದಲ್ಲೇ',
+  },
+  hi: {
+    chooseLanguage: 'अपनी भाषा चुनें',
+    chooseAphasia: 'एफेज़िया प्रकार चुनें',
+    therapyHub: 'चिकित्सा केंद्र',
+    cilt: 'CILT अभ्यास',
+    ciltDesc: 'देखें, सुनें, बोलें — निर्बंधित अभ्यास।',
+    cueing: 'संकेत श्रेणी',
+    cueingDesc: 'अर्थ → ध्वनि → आदर्श संकेत के साथ शब्द स्मरण।',
+    comprehension: 'समझ अभ्यास',
+    comprehensionDesc: 'शब्द सुनें और सही चित्र पर टैप करें।',
+    listen: 'सुनें',
+    giveCue: 'संकेत दें',
+    semanticCue: 'अर्थ संकेत',
+    phonologicalCue: 'ध्वनि संकेत',
+    modelCue: 'पूरा शब्द',
+    produced: 'बोला',
+    approximated: 'करीब आया',
+    notAttempted: 'प्रयास नहीं किया',
+    next: 'आगे',
+    back: 'पीछे',
+    sessionComplete: 'सत्र पूरा हुआ',
+    progress: 'प्रगति',
+    exportCsv: 'सत्र निर्यात करें (CSV)',
+    pickPicture: 'सही चित्र पर टैप करें',
+    futureScope: 'भविष्य की योजना (YTI)',
+    voiceClone: 'आवाज़ क्लोनिंग',
+    gesture: 'इशारा मॉड्यूल',
+    comingSoon: 'जल्द आ रहा है',
+  },
+  ml: {
+    chooseLanguage: 'നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക',
+    chooseAphasia: 'അഫേഷ്യ തരം തിരഞ്ഞെടുക്കുക',
+    therapyHub: 'ചികിത്സാ കേന്ദ്രം',
+    cilt: 'CILT പരിശീലനം',
+    ciltDesc: 'കാണുക, കേൾക്കുക, പറയുക — നിയന്ത്രിത പരിശീലനം.',
+    cueing: 'സൂചനാ ശ്രേണി',
+    cueingDesc: 'അർത്ഥം → ശബ്ദം → മാതൃക സൂചനകൾ.',
+    comprehension: 'ഗ്രഹണ പരിശീലനം',
+    comprehensionDesc: 'വാക്ക് കേട്ട് ശരിയായ ചിത്രം തിരഞ്ഞെടുക്കുക.',
+    listen: 'കേൾക്കുക',
+    giveCue: 'സൂചന നൽകുക',
+    semanticCue: 'അർത്ഥ സൂചന',
+    phonologicalCue: 'ശബ്ദ സൂചന',
+    modelCue: 'പൂർണ്ണ വാക്ക്',
+    produced: 'പറഞ്ഞു',
+    approximated: 'ഏകദേശം',
+    notAttempted: 'ശ്രമിച്ചില്ല',
+    next: 'അടുത്തത്',
+    back: 'പിന്നോട്ട്',
+    sessionComplete: 'സെഷൻ പൂർത്തിയായി',
+    progress: 'പുരോഗതി',
+    exportCsv: 'സെഷൻ കയറ്റുമതി (CSV)',
+    pickPicture: 'ശരിയായ ചിത്രം തൊടുക',
+    futureScope: 'ഭാവി വ്യാപ്തി (YTI)',
+    voiceClone: 'വോയിസ് ക്ലോണിംഗ്',
+    gesture: 'ആംഗ്യ മൊഡ്യൂൾ',
+    comingSoon: 'ഉടൻ വരുന്നു',
+  },
+  ta: {
+    chooseLanguage: 'உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்',
+    chooseAphasia: 'அஃபேசியா வகையைத் தேர்ந்தெடுக்கவும்',
+    therapyHub: 'சிகிச்சை மையம்',
+    cilt: 'CILT பயிற்சி',
+    ciltDesc: 'பார், கேள், சொல் — கட்டுப்பாட்டு பயிற்சி.',
+    cueing: 'குறிப்பு வரிசை',
+    cueingDesc: 'பொருள் → ஒலி → மாதிரி குறிப்புகள்.',
+    comprehension: 'புரிதல் பயிற்சி',
+    comprehensionDesc: 'சொல்லைக் கேட்டு சரியான படத்தைத் தொடவும்.',
+    listen: 'கேளுங்கள்',
+    giveCue: 'குறிப்பு தரவும்',
+    semanticCue: 'பொருள் குறிப்பு',
+    phonologicalCue: 'ஒலி குறிப்பு',
+    modelCue: 'முழு சொல்',
+    produced: 'சொன்னார்',
+    approximated: 'அண்மை',
+    notAttempted: 'முயற்சி இல்லை',
+    next: 'அடுத்து',
+    back: 'பின்',
+    sessionComplete: 'அமர்வு முடிந்தது',
+    progress: 'முன்னேற்றம்',
+    exportCsv: 'அமர்வை ஏற்றுமதி (CSV)',
+    pickPicture: 'சரியான படத்தைத் தொடவும்',
+    futureScope: 'எதிர்கால திட்டம் (YTI)',
+    voiceClone: 'குரல் நகலாக்கம்',
+    gesture: 'சைகை தொகுதி',
+    comingSoon: 'விரைவில்',
+  },
+  te: {
+    chooseLanguage: 'మీ భాషను ఎంచుకోండి',
+    chooseAphasia: 'అఫేసియా రకాన్ని ఎంచుకోండి',
+    therapyHub: 'చికిత్స కేంద్రం',
+    cilt: 'CILT అభ్యాసం',
+    ciltDesc: 'చూడండి, వినండి, మాట్లాడండి — నియంత్రిత అభ్యాసం.',
+    cueing: 'సూచన శ్రేణి',
+    cueingDesc: 'అర్థం → ధ్వని → మాదిరి సూచనలు.',
+    comprehension: 'అవగాహన అభ్యాసం',
+    comprehensionDesc: 'మాట విని సరైన చిత్రాన్ని ఎంచుకోండి.',
+    listen: 'వినండి',
+    giveCue: 'సూచన ఇవ్వండి',
+    semanticCue: 'అర్థ సూచన',
+    phonologicalCue: 'ధ్వని సూచన',
+    modelCue: 'పూర్తి పదం',
+    produced: 'చెప్పారు',
+    approximated: 'దగ్గరగా',
+    notAttempted: 'ప్రయత్నించలేదు',
+    next: 'తదుపరి',
+    back: 'వెనుక',
+    sessionComplete: 'సెషన్ పూర్తయింది',
+    progress: 'పురోగతి',
+    exportCsv: 'సెషన్‌ను ఎగుమతి (CSV)',
+    pickPicture: 'సరైన చిత్రాన్ని తాకండి',
+    futureScope: 'భవిష్యత్ ప్రణాళిక (YTI)',
+    voiceClone: 'వాయిస్ క్లోనింగ్',
+    gesture: 'సంజ్ఞ మాడ్యూల్',
+    comingSoon: 'త్వరలో',
+  },
+};
+
+export const APHASIA_LABELS: Record<LangCode, Record<string, string>> = {
+  en: {
+    broca: "Broca's (motor, agrammatism)",
+    wernicke: "Wernicke's (comprehension)",
+    anomic: 'Anomic (word retrieval)',
+    global: 'Global (severe, all modalities)',
+    conduction: 'Conduction (repetition)',
+    transcortical: 'Transcortical (echolalia)',
+  },
+  kn: {
+    broca: 'ಬ್ರೋಕಾ (ಚಲನ, ವ್ಯಾಕರಣರಹಿತ)',
+    wernicke: 'ವೆರ್ನಿಕೆ (ಗ್ರಹಣ)',
+    anomic: 'ಅನಾಮಿಕ್ (ಪದ ಸ್ಮರಣೆ)',
+    global: 'ಜಾಗತಿಕ (ತೀವ್ರ, ಎಲ್ಲಾ)',
+    conduction: 'ನಿರ್ವಹಣ (ಪುನರಾವೃತ್ತಿ)',
+    transcortical: 'ಟ್ರಾನ್ಸ್‌ಕಾರ್ಟಿಕಲ್ (ಎಕೋಲಾಲಿಯಾ)',
+  },
+  hi: {
+    broca: 'ब्रोका (गति, अव्याकरण)',
+    wernicke: 'वर्निके (समझ)',
+    anomic: 'अनॉमिक (शब्द स्मरण)',
+    global: 'ग्लोबल (गंभीर)',
+    conduction: 'कंडक्शन (पुनरावृत्ति)',
+    transcortical: 'ट्रांसकॉर्टिकल (प्रतिध्वनि)',
+  },
+  ml: {
+    broca: "ബ്രോക്കാസ് (ചലന)",
+    wernicke: "വെർനിക്കെ (ഗ്രഹണം)",
+    anomic: 'അനോമിക് (വാക്ക് സ്മരണ)',
+    global: 'ഗ്ലോബൽ (തീവ്ര)',
+    conduction: 'കൺഡക്ഷൻ (ആവർത്തനം)',
+    transcortical: 'ട്രാൻസ്കോർട്ടിക്കൽ',
+  },
+  ta: {
+    broca: 'ப்ரோகா (இயக்க)',
+    wernicke: 'வெர்னிக்கே (புரிதல்)',
+    anomic: 'அனாமிக் (சொல் நினைவு)',
+    global: 'குளோபல் (கடுமையான)',
+    conduction: 'கண்டக்ஷன் (திரும்பச் சொல்)',
+    transcortical: 'டிரான்ஸ்கார்டிக்கல்',
+  },
+  te: {
+    broca: 'బ్రోకా (చలన)',
+    wernicke: 'వెర్నికే (అవగాహన)',
+    anomic: 'అనామిక్ (పద స్మరణ)',
+    global: 'గ్లోబల్ (తీవ్ర)',
+    conduction: 'కండక్షన్ (పునరావృత్తి)',
+    transcortical: 'ట్రాన్స్‌కార్టికల్',
+  },
+};

@@ -1,0 +1,96 @@
+{
+  "lang": "ml",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "ml-banana",
+      "word": "വാഴപ്പഴം",
+      "translit": "vāḻappaḻaṁ",
+      "emoji": "🍌",
+      "semanticCue": "ഇതൊരു പഴമാണ്. നീളമുള്ളത്, മഞ്ഞ നിറം.",
+      "phonologicalCue": "ഇത് /വാ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "ml-apple",
+      "word": "ആപ്പിൾ",
+      "translit": "āppiḷ",
+      "emoji": "🍎",
+      "semanticCue": "ഇതൊരു പഴമാണ്. ഉരുണ്ടതും ചുവന്നതും.",
+      "phonologicalCue": "ഇത് /ആ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "ml-water",
+      "word": "വെള്ളം",
+      "translit": "veḷḷaṁ",
+      "emoji": "💧",
+      "semanticCue": "ദാഹിക്കുമ്പോൾ കുടിക്കും.",
+      "phonologicalCue": "ഇത് /വെ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "ml-cup",
+      "word": "കപ്പ്",
+      "translit": "kapp",
+      "emoji": "☕",
+      "semanticCue": "ഇതിൽ നിന്ന് കുടിക്കും.",
+      "phonologicalCue": "ഇത് /ക/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "ml-chair",
+      "word": "കസേര",
+      "translit": "kasēra",
+      "emoji": "🪑",
+      "semanticCue": "ഇതിൽ ഇരിക്കും.",
+      "phonologicalCue": "ഇത് /ക/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "ml-bed",
+      "word": "കിടക്ക",
+      "translit": "kiṭakka",
+      "emoji": "🛏️",
+      "semanticCue": "രാത്രിയിൽ ഇതിൽ ഉറങ്ങും.",
+      "phonologicalCue": "ഇത് /കി/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "ml-dog",
+      "word": "നായ",
+      "translit": "nāya",
+      "emoji": "🐕",
+      "semanticCue": "ഒരു മൃഗം. കുരയ്ക്കും.",
+      "phonologicalCue": "ഇത് /നാ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "ml-tea",
+      "word": "ചായ",
+      "translit": "chāya",
+      "emoji": "🍵",
+      "semanticCue": "ചൂടുള്ള പാനീയം.",
+      "phonologicalCue": "ഇത് /ചാ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "ml-book",
+      "word": "പുസ്തകം",
+      "translit": "pustakaṁ",
+      "emoji": "📖",
+      "semanticCue": "ഇത് വായിക്കും. പേജുകൾ ഉണ്ട്.",
+      "phonologicalCue": "ഇത് /പു/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "ml-house",
+      "word": "വീട്",
+      "translit": "vīṭ",
+      "emoji": "🏠",
+      "semanticCue": "നിങ്ങൾ താമസിക്കുന്ന സ്ഥലം.",
+      "phonologicalCue": "ഇത് /വീ/ എന്ന് തുടങ്ങുന്നു…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}

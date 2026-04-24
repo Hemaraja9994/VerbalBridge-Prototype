@@ -1,0 +1,96 @@
+{
+  "lang": "te",
+  "_note": "Draft stimuli — SLP validation required before clinical use.",
+  "items": [
+    {
+      "id": "te-banana",
+      "word": "అరటిపండు",
+      "translit": "araṭipaṇḍu",
+      "emoji": "🍌",
+      "semanticCue": "ఇది ఒక పండు. పొడవు, పసుపు రంగు.",
+      "phonologicalCue": "ఇది /అ/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🍎", "🍇", "🍊"]
+    },
+    {
+      "id": "te-apple",
+      "word": "యాపిల్",
+      "translit": "yāpil",
+      "emoji": "🍎",
+      "semanticCue": "ఇది ఒక పండు. గుండ్రంగా ఉండి ఎరుపు.",
+      "phonologicalCue": "ఇది /యా/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🍌", "🍊", "🍇"]
+    },
+    {
+      "id": "te-water",
+      "word": "నీళ్ళు",
+      "translit": "nīḷḷu",
+      "emoji": "💧",
+      "semanticCue": "దాహం వేసినప్పుడు తాగుతారు.",
+      "phonologicalCue": "ఇది /నీ/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🍵", "🥛", "🧃"]
+    },
+    {
+      "id": "te-cup",
+      "word": "కప్పు",
+      "translit": "kappu",
+      "emoji": "☕",
+      "semanticCue": "దీనిలో తాగుతారు.",
+      "phonologicalCue": "ఇది /క/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🍽️", "🥄", "🍴"]
+    },
+    {
+      "id": "te-chair",
+      "word": "కుర్చీ",
+      "translit": "kurchī",
+      "emoji": "🪑",
+      "semanticCue": "దీనిపై కూర్చుంటారు.",
+      "phonologicalCue": "ఇది /కు/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🛏️", "🪟", "🚪"]
+    },
+    {
+      "id": "te-bed",
+      "word": "మంచం",
+      "translit": "mancham",
+      "emoji": "🛏️",
+      "semanticCue": "రాత్రి దీనిపై పడుకుంటారు.",
+      "phonologicalCue": "ఇది /మ/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🪑", "🛋️", "🚪"]
+    },
+    {
+      "id": "te-dog",
+      "word": "కుక్క",
+      "translit": "kukka",
+      "emoji": "🐕",
+      "semanticCue": "ఒక జంతువు. మొరుగుతుంది.",
+      "phonologicalCue": "ఇది /కు/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🐈", "🐄", "🐇"]
+    },
+    {
+      "id": "te-tea",
+      "word": "టీ",
+      "translit": "ṭī",
+      "emoji": "🍵",
+      "semanticCue": "వేడి పానీయం.",
+      "phonologicalCue": "ఇది /టీ/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["☕", "🥛", "🧃"]
+    },
+    {
+      "id": "te-book",
+      "word": "పుస్తకం",
+      "translit": "pustakam",
+      "emoji": "📖",
+      "semanticCue": "దీన్ని చదువుతారు. పేజీలు ఉంటాయి.",
+      "phonologicalCue": "ఇది /పు/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["📱", "📺", "📰"]
+    },
+    {
+      "id": "te-house",
+      "word": "ఇల్లు",
+      "translit": "illu",
+      "emoji": "🏠",
+      "semanticCue": "మీరు నివసించే స్థలం.",
+      "phonologicalCue": "ఇది /ఇ/ తో ప్రారంభమవుతుంది…",
+      "distractorEmojis": ["🏥", "🏫", "🏪"]
+    }
+  ]
+}
