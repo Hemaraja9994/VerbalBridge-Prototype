@@ -7,6 +7,7 @@ interface Props {
   lang: LangCode;
   aphasia: AphasiaType;
   onSelectModule: (m: ModuleId) => void;
+  onOpenVoiceBank: () => void;
   onOpenProgress: () => void;
   onBack: () => void;
 }
@@ -15,23 +16,26 @@ const MODULE_ICON: Record<ModuleId, string> = {
   cilt: '🗣️',
   cueing: '🪜',
   comprehension: '👂',
+  gesture: '✋',
 };
 
 const TherapyHub: React.FC<Props> = ({
   lang,
   aphasia,
   onSelectModule,
+  onOpenVoiceBank,
   onOpenProgress,
   onBack,
 }) => {
   const t = UI[lang];
   const recommended = MODULE_MAP[aphasia];
-  const all: ModuleId[] = ['cilt', 'cueing', 'comprehension'];
+  const all: ModuleId[] = ['cilt', 'cueing', 'comprehension', 'gesture'];
 
   const moduleMeta: Record<ModuleId, { title: string; desc: string }> = {
     cilt: { title: t.cilt, desc: t.ciltDesc },
     cueing: { title: t.cueing, desc: t.cueingDesc },
     comprehension: { title: t.comprehension, desc: t.comprehensionDesc },
+    gesture: { title: t.gesture, desc: t.gestureDesc },
   };
 
   return (
@@ -60,22 +64,15 @@ const TherapyHub: React.FC<Props> = ({
         })}
       </div>
 
-      <div className="future-scope mt-xl">
-        <h3 className="future-title">{t.futureScope}</h3>
-        <div className="future-grid">
-          <div className="glass-card future-tile disabled">
-            <div className="module-icon">🎙️</div>
-            <h4>{t.voiceClone}</h4>
-            <p>Coqui YourTTS — pre-morbid voice restoration</p>
-            <span className="badge-soon">{t.comingSoon}</span>
+      <div className="hub-utility mt-xl">
+        <button className="glass-card hub-utility-card" onClick={onOpenVoiceBank}>
+          <div className="hub-utility-icon">🎙️</div>
+          <div className="hub-utility-text">
+            <h4>{t.voiceBank}</h4>
+            <p>{t.voiceBankSubtitle}</p>
           </div>
-          <div className="glass-card future-tile disabled">
-            <div className="module-icon">✋</div>
-            <h4>{t.gesture}</h4>
-            <p>MediaPipe + CNN-LSTM — 8 clinical gestures</p>
-            <span className="badge-soon">{t.comingSoon}</span>
-          </div>
-        </div>
+          <span className="hub-utility-arrow">→</span>
+        </button>
       </div>
 
       <div className="hub-actions mt-lg">

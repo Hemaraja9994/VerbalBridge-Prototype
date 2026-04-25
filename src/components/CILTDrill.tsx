@@ -1,24 +1,32 @@
 import React, { useMemo, useState } from 'react';
 import { UI } from '../i18n/ui';
 import { getStimuli } from '../data/stimuli';
-import type { LangCode, Outcome, SessionEntry } from '../types';
+import { useFamiliarVoice } from '../hooks/useFamiliarVoice';
+import type { LangCode, Outcome, SessionEntry, VoiceSource } from '../types';
 
 interface Props {
   lang: LangCode;
   onComplete: (entries: SessionEntry[]) => void;
   onBack: () => void;
-  speak: (text: string, rate?: number) => void;
 }
 
-const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack, speak }) => {
+const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
   const t = UI[lang];
   const items = useMemo(() => getStimuli(lang).items, [lang]);
+  const { speakItem, lastSource } = useFamiliarVoice(lang);
   const [index, setIndex] = useState(0);
   const [entries, setEntries] = useState<SessionEntry[]>([]);
   const [listened, setListened] = useState(false);
+  const [usedSource, setUsedSource] = useState<VoiceSource>('none');
 
   const current = items[index];
   const isLast = index === items.length - 1;
+
+  const handleListen = async () => {
+    const src = await speakItem(current.id, current.word, 0.75);
+    setUsedSource(src);
+    setListened(true);
+  };
 
   const handleOutcome = (outcome: Outcome) => {
     const entry: SessionEntry = {
@@ -27,21 +35,18 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack, speak }) => {
       module: 'cilt',
       cueLevel: listened ? 'model' : 'unaided',
       outcome,
+      voiceSource: listened ? lastSource() : undefined,
       timestamp: Date.now(),
     };
     const next = [...entries, entry];
     setEntries(next);
     setListened(false);
+    setUsedSource('none');
     if (isLast) {
       onComplete(next);
     } else {
       setIndex(index + 1);
     }
-  };
-
-  const handleListen = () => {
-    speak(current.word, 0.75);
-    setListened(true);
   };
 
   return (
@@ -76,6 +81,17 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack, speak }) => {
         <button className="primary listen-btn mt-lg" onClick={handleListen}>
           🔊 {t.listen}
         </button>
+
+        {listened && usedSource === 'familiar' && (
+          <div className="voice-source-badge familiar">
+            ❤️ {t.playedFamiliarVoice}
+          </div>
+        )}
+        {listened && usedSource === 'tts' && (
+          <div className="voice-source-badge tts">
+            🤖 {t.playedTtsVoice}
+          </div>
+        )}
 
         <p className="instruction mt-md">
           Look at the picture. Listen. Say the word aloud.

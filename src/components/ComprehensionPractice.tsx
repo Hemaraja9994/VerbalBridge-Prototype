@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { UI } from '../i18n/ui';
 import { getStimuli } from '../data/stimuli';
+import { useFamiliarVoice } from '../hooks/useFamiliarVoice';
 import type { LangCode, Outcome, SessionEntry } from '../types';
 
 interface Props {
   lang: LangCode;
   onComplete: (entries: SessionEntry[]) => void;
   onBack: () => void;
-  speak: (text: string, rate?: number) => void;
 }
 
 const shuffle = <T,>(arr: T[]): T[] => {
@@ -19,14 +19,10 @@ const shuffle = <T,>(arr: T[]): T[] => {
   return out;
 };
 
-const ComprehensionPractice: React.FC<Props> = ({
-  lang,
-  onComplete,
-  onBack,
-  speak,
-}) => {
+const ComprehensionPractice: React.FC<Props> = ({ lang, onComplete, onBack }) => {
   const t = UI[lang];
   const items = useMemo(() => getStimuli(lang).items, [lang]);
+  const { speakItem, lastSource } = useFamiliarVoice(lang);
   const [index, setIndex] = useState(0);
   const [entries, setEntries] = useState<SessionEntry[]>([]);
   const [options, setOptions] = useState<string[]>([]);
@@ -43,8 +39,8 @@ const ComprehensionPractice: React.FC<Props> = ({
     setListened(false);
   }, [current]);
 
-  const handleListen = () => {
-    speak(current.word, 0.75);
+  const handleListen = async () => {
+    await speakItem(current.id, current.word, 0.75);
     setListened(true);
   };
 
@@ -55,6 +51,7 @@ const ComprehensionPractice: React.FC<Props> = ({
       module: 'comprehension',
       cueLevel: listened ? 'model' : 'unaided',
       outcome,
+      voiceSource: listened ? lastSource() : undefined,
       timestamp: Date.now(),
     };
     const next = [...entries, entry];

@@ -27,10 +27,11 @@ const ICONS: Record<AphasiaType, string> = {
 };
 
 export const MODULE_MAP: Record<AphasiaType, ModuleId[]> = {
-  broca: ['cilt', 'cueing'],
+  broca: ['cilt', 'cueing', 'gesture'],
   wernicke: ['comprehension', 'cueing'],
   anomic: ['cueing', 'cilt'],
-  global: ['comprehension', 'cilt'],
+  // Global aphasia: severe, multi-modal — gesture + comprehension are first-line.
+  global: ['gesture', 'comprehension', 'cilt'],
   conduction: ['cilt', 'cueing'],
   transcortical: ['cilt', 'cueing'],
 };

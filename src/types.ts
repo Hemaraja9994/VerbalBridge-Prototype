@@ -8,11 +8,18 @@ export type AphasiaType =
   | 'conduction'
   | 'transcortical';
 
-export type ModuleId = 'cilt' | 'cueing' | 'comprehension';
+export type ModuleId = 'cilt' | 'cueing' | 'comprehension' | 'gesture';
 
-export type CueLevel = 'unaided' | 'semantic' | 'phonological' | 'model';
+export type CueLevel =
+  | 'unaided'
+  | 'gesture'
+  | 'semantic'
+  | 'phonological'
+  | 'model';
 
 export type Outcome = 'produced' | 'approximated' | 'not-attempted';
+
+export type VoiceSource = 'familiar' | 'tts' | 'none';
 
 export interface StimulusItem {
   id: string;
@@ -21,6 +28,10 @@ export interface StimulusItem {
   emoji: string;
   semanticCue: string;
   phonologicalCue: string;
+  /** Short instruction for the gesture (in the stimulus language). */
+  gesture: string;
+  /** Single emoji depicting the gesture/action. */
+  gestureEmoji: string;
   distractorEmojis?: string[];
 }
 
@@ -35,6 +46,8 @@ export interface SessionEntry {
   module: ModuleId;
   cueLevel: CueLevel;
   outcome: Outcome;
+  /** Which voice was used as the model cue, if any. */
+  voiceSource?: VoiceSource;
   timestamp: number;
 }
 

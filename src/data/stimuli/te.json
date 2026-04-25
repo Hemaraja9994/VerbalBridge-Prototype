@@ -9,6 +9,8 @@
       "emoji": "🍌",
       "semanticCue": "ఇది ఒక పండు. పొడవు, పసుపు రంగు.",
       "phonologicalCue": "ఇది /అ/ తో ప్రారంభమవుతుంది…",
+      "gesture": "అరటిపండు ఒలిచి తినే సంజ్ఞ చూపండి.",
+      "gestureEmoji": "🤲",
       "distractorEmojis": ["🍎", "🍇", "🍊"]
     },
     {
@@ -18,6 +20,8 @@
       "emoji": "🍎",
       "semanticCue": "ఇది ఒక పండు. గుండ్రంగా ఉండి ఎరుపు.",
       "phonologicalCue": "ఇది /యా/ తో ప్రారంభమవుతుంది…",
+      "gesture": "ఒక చేతిలో పట్టి కొరికే సంజ్ఞ చూపండి.",
+      "gestureEmoji": "🤏",
       "distractorEmojis": ["🍌", "🍊", "🍇"]
     },
     {
@@ -27,6 +31,8 @@
       "emoji": "💧",
       "semanticCue": "దాహం వేసినప్పుడు తాగుతారు.",
       "phonologicalCue": "ఇది /నీ/ తో ప్రారంభమవుతుంది…",
+      "gesture": "చేతిని నోటికి ఎత్తి తాగే సంజ్ఞ చూపండి.",
+      "gestureEmoji": "🥤",
       "distractorEmojis": ["🍵", "🥛", "🧃"]
     },
     {
@@ -36,6 +42,8 @@
       "emoji": "☕",
       "semanticCue": "దీనిలో తాగుతారు.",
       "phonologicalCue": "ఇది /క/ తో ప్రారంభమవుతుంది…",
+      "gesture": "కప్పు పిడిని పట్టి పైకి ఎత్తండి.",
+      "gestureEmoji": "✋",
       "distractorEmojis": ["🍽️", "🥄", "🍴"]
     },
     {
@@ -45,6 +53,8 @@
       "emoji": "🪑",
       "semanticCue": "దీనిపై కూర్చుంటారు.",
       "phonologicalCue": "ఇది /కు/ తో ప్రారంభమవుతుంది…",
+      "gesture": "కూర్చున్నట్లు కొంచెం వంగండి.",
+      "gestureEmoji": "🧎",
       "distractorEmojis": ["🛏️", "🪟", "🚪"]
     },
     {
@@ -54,6 +64,8 @@
       "emoji": "🛏️",
       "semanticCue": "రాత్రి దీనిపై పడుకుంటారు.",
       "phonologicalCue": "ఇది /మ/ తో ప్రారంభమవుతుంది…",
+      "gesture": "చేతులపై తల ఉంచి పడుకునే సంజ్ఞ.",
+      "gestureEmoji": "🛌",
       "distractorEmojis": ["🪑", "🛋️", "🚪"]
     },
     {
@@ -63,6 +75,8 @@
       "emoji": "🐕",
       "semanticCue": "ఒక జంతువు. మొరుగుతుంది.",
       "phonologicalCue": "ఇది /కు/ తో ప్రారంభమవుతుంది…",
+      "gesture": "తొడ తట్టి పెంపుడు జంతువును పిలవండి.",
+      "gestureEmoji": "🐾",
       "distractorEmojis": ["🐈", "🐄", "🐇"]
     },
     {
@@ -72,6 +86,8 @@
       "emoji": "🍵",
       "semanticCue": "వేడి పానీయం.",
       "phonologicalCue": "ఇది /టీ/ తో ప్రారంభమవుతుంది…",
+      "gesture": "చిన్న కప్పు పట్టి ఊది తాగండి.",
+      "gestureEmoji": "🍵",
       "distractorEmojis": ["☕", "🥛", "🧃"]
     },
     {
@@ -81,6 +97,8 @@
       "emoji": "📖",
       "semanticCue": "దీన్ని చదువుతారు. పేజీలు ఉంటాయి.",
       "phonologicalCue": "ఇది /పు/ తో ప్రారంభమవుతుంది…",
+      "gesture": "రెండు అరచేతులు పుస్తకంలా తెరవండి.",
+      "gestureEmoji": "📖",
       "distractorEmojis": ["📱", "📺", "📰"]
     },
     {
@@ -90,6 +108,8 @@
       "emoji": "🏠",
       "semanticCue": "మీరు నివసించే స్థలం.",
       "phonologicalCue": "ఇది /ఇ/ తో ప్రారంభమవుతుంది…",
+      "gesture": "తలపై వేళ్ళు కలిపి పైకప్పు చేయండి.",
+      "gestureEmoji": "🛖",
       "distractorEmojis": ["🏥", "🏫", "🏪"]
     }
   ]

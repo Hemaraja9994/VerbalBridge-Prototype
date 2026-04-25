@@ -19,8 +19,11 @@ export interface UILabels {
   cueingDesc: string;
   comprehension: string;
   comprehensionDesc: string;
+  gesture: string;
+  gestureDesc: string;
   listen: string;
   giveCue: string;
+  gestureCue: string;
   semanticCue: string;
   phonologicalCue: string;
   modelCue: string;
@@ -33,10 +36,19 @@ export interface UILabels {
   progress: string;
   exportCsv: string;
   pickPicture: string;
-  futureScope: string;
-  voiceClone: string;
-  gesture: string;
-  comingSoon: string;
+  // Voice bank
+  voiceBank: string;
+  voiceBankSubtitle: string;
+  recordedSoFar: string;
+  recordedBy: string;
+  familiarVoiceHint: string;
+  playedFamiliarVoice: string;
+  playedTtsVoice: string;
+  // Gesture therapy
+  lookAndSay: string;
+  doGesture: string;
+  listenWhileGesturing: string;
+  gesturePairInstruction: string;
 }
 
 export const UI: Record<LangCode, UILabels> = {
@@ -47,11 +59,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT Drill',
     ciltDesc: 'Constraint-Induced practice — look, listen, speak.',
     cueing: 'Cueing Hierarchy',
-    cueingDesc: 'Word retrieval with staged semantic → phonological → model cues.',
+    cueingDesc: 'Word retrieval with gesture → semantic → phonological → model cues.',
     comprehension: 'Comprehension Practice',
     comprehensionDesc: 'Listen to a word and point to the matching picture.',
+    gesture: 'Gesture Therapy',
+    gestureDesc: 'Pair each word with a gesture — vital for global aphasia.',
     listen: 'Listen',
     giveCue: 'Give Cue',
+    gestureCue: 'Gesture cue',
     semanticCue: 'Semantic cue',
     phonologicalCue: 'Phonological cue',
     modelCue: 'Model (full word)',
@@ -64,10 +79,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'Progress',
     exportCsv: 'Export session (CSV)',
     pickPicture: 'Tap the matching picture',
-    futureScope: 'Future Scope (with YTI)',
-    voiceClone: 'Voice Cloning',
-    gesture: 'Gesture Module',
-    comingSoon: 'Coming soon',
+    voiceBank: 'Familiar Voice Bank',
+    voiceBankSubtitle: 'Record words in a loved one\'s voice',
+    recordedSoFar: 'recorded',
+    recordedBy: 'Recorded by',
+    familiarVoiceHint: 'A familiar voice (spouse, child, caregiver) recruits stronger semantic networks than synthetic TTS.',
+    playedFamiliarVoice: 'Familiar voice played',
+    playedTtsVoice: 'Synthetic voice played',
+    lookAndSay: 'Look & say',
+    doGesture: 'Do this gesture',
+    listenWhileGesturing: 'Listen while gesturing',
+    gesturePairInstruction: 'Make the gesture and say the word at the same time.',
   },
   kn: {
     chooseLanguage: 'ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
@@ -76,11 +98,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT ಅಭ್ಯಾಸ',
     ciltDesc: 'ನೋಡಿ, ಕೇಳಿ, ಹೇಳಿ — ನಿರ್ಬಂಧಿತ ಅಭ್ಯಾಸ.',
     cueing: 'ಸೂಚನಾ ಶ್ರೇಣಿ',
-    cueingDesc: 'ಅರ್ಥ → ಧ್ವನಿ → ಮಾದರಿ ಸೂಚನೆಗಳೊಂದಿಗೆ ಪದ ಸ್ಮರಣೆ.',
+    cueingDesc: 'ಸನ್ನೆ → ಅರ್ಥ → ಧ್ವನಿ → ಮಾದರಿ ಸೂಚನೆಗಳು.',
     comprehension: 'ಗ್ರಹಣ ಅಭ್ಯಾಸ',
     comprehensionDesc: 'ಪದವನ್ನು ಕೇಳಿ ಸರಿಯಾದ ಚಿತ್ರವನ್ನು ತೋರಿಸಿ.',
+    gesture: 'ಸನ್ನೆ ಚಿಕಿತ್ಸೆ',
+    gestureDesc: 'ಪ್ರತಿ ಪದಕ್ಕೆ ಸನ್ನೆಯನ್ನು ಜೋಡಿಸಿ — ಜಾಗತಿಕ ಅಫೇಸಿಯಾಗೆ ಮುಖ್ಯ.',
     listen: 'ಕೇಳಿ',
     giveCue: 'ಸೂಚನೆ ನೀಡಿ',
+    gestureCue: 'ಸನ್ನೆ ಸೂಚನೆ',
     semanticCue: 'ಅರ್ಥ ಸೂಚನೆ',
     phonologicalCue: 'ಧ್ವನಿ ಸೂಚನೆ',
     modelCue: 'ಸಂಪೂರ್ಣ ಪದ',
@@ -93,10 +118,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'ಪ್ರಗತಿ',
     exportCsv: 'ಅವಧಿಯನ್ನು ರಫ್ತು ಮಾಡಿ (CSV)',
     pickPicture: 'ಸರಿಯಾದ ಚಿತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ',
-    futureScope: 'ಭವಿಷ್ಯದ ವ್ಯಾಪ್ತಿ (YTI)',
-    voiceClone: 'ಧ್ವನಿ ಪುನರುತ್ಪಾದನೆ',
-    gesture: 'ಸನ್ನೆ ಮಾಡ್ಯೂಲ್',
-    comingSoon: 'ಶೀಘ್ರದಲ್ಲೇ',
+    voiceBank: 'ಪರಿಚಿತ ಧ್ವನಿ ಬ್ಯಾಂಕ್',
+    voiceBankSubtitle: 'ಪ್ರೀತಿಪಾತ್ರರ ಧ್ವನಿಯಲ್ಲಿ ಪದಗಳನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ',
+    recordedSoFar: 'ರೆಕಾರ್ಡ್ ಆಗಿದೆ',
+    recordedBy: 'ರೆಕಾರ್ಡ್ ಮಾಡಿದವರು',
+    familiarVoiceHint: 'ಪರಿಚಿತ ಧ್ವನಿ (ಸಂಗಾತಿ, ಮಗು, ಆರೈಕೆದಾರ) TTS ಗಿಂತ ಬಲವಾದ ಅರ್ಥ ಸಂಪರ್ಕಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ.',
+    playedFamiliarVoice: 'ಪರಿಚಿತ ಧ್ವನಿ ಪ್ಲೇ ಆಯಿತು',
+    playedTtsVoice: 'ಕೃತಕ ಧ್ವನಿ ಪ್ಲೇ ಆಯಿತು',
+    lookAndSay: 'ನೋಡಿ ಹಾಗೂ ಹೇಳಿ',
+    doGesture: 'ಈ ಸನ್ನೆ ಮಾಡಿ',
+    listenWhileGesturing: 'ಸನ್ನೆ ಮಾಡುತ್ತಾ ಕೇಳಿ',
+    gesturePairInstruction: 'ಸನ್ನೆ ಮಾಡುತ್ತಾ ಅದೇ ಸಮಯದಲ್ಲಿ ಪದವನ್ನು ಹೇಳಿ.',
   },
   hi: {
     chooseLanguage: 'अपनी भाषा चुनें',
@@ -105,11 +137,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT अभ्यास',
     ciltDesc: 'देखें, सुनें, बोलें — निर्बंधित अभ्यास।',
     cueing: 'संकेत श्रेणी',
-    cueingDesc: 'अर्थ → ध्वनि → आदर्श संकेत के साथ शब्द स्मरण।',
+    cueingDesc: 'इशारा → अर्थ → ध्वनि → आदर्श संकेत।',
     comprehension: 'समझ अभ्यास',
     comprehensionDesc: 'शब्द सुनें और सही चित्र पर टैप करें।',
+    gesture: 'इशारा चिकित्सा',
+    gestureDesc: 'हर शब्द के साथ इशारा जोड़ें — ग्लोबल एफेज़िया के लिए महत्वपूर्ण।',
     listen: 'सुनें',
     giveCue: 'संकेत दें',
+    gestureCue: 'इशारा संकेत',
     semanticCue: 'अर्थ संकेत',
     phonologicalCue: 'ध्वनि संकेत',
     modelCue: 'पूरा शब्द',
@@ -122,10 +157,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'प्रगति',
     exportCsv: 'सत्र निर्यात करें (CSV)',
     pickPicture: 'सही चित्र पर टैप करें',
-    futureScope: 'भविष्य की योजना (YTI)',
-    voiceClone: 'आवाज़ क्लोनिंग',
-    gesture: 'इशारा मॉड्यूल',
-    comingSoon: 'जल्द आ रहा है',
+    voiceBank: 'परिचित आवाज़ बैंक',
+    voiceBankSubtitle: 'अपनों की आवाज़ में शब्द रिकॉर्ड करें',
+    recordedSoFar: 'रिकॉर्ड हुए',
+    recordedBy: 'रिकॉर्ड किया',
+    familiarVoiceHint: 'परिचित आवाज़ (पति/पत्नी, बच्चा, देखभाल करने वाला) TTS से अधिक मजबूत अर्थ नेटवर्क सक्रिय करती है।',
+    playedFamiliarVoice: 'परिचित आवाज़ चली',
+    playedTtsVoice: 'कृत्रिम आवाज़ चली',
+    lookAndSay: 'देखें और बोलें',
+    doGesture: 'यह इशारा करें',
+    listenWhileGesturing: 'इशारा करते हुए सुनें',
+    gesturePairInstruction: 'इशारा करें और साथ में शब्द बोलें।',
   },
   ml: {
     chooseLanguage: 'നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക',
@@ -134,11 +176,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT പരിശീലനം',
     ciltDesc: 'കാണുക, കേൾക്കുക, പറയുക — നിയന്ത്രിത പരിശീലനം.',
     cueing: 'സൂചനാ ശ്രേണി',
-    cueingDesc: 'അർത്ഥം → ശബ്ദം → മാതൃക സൂചനകൾ.',
+    cueingDesc: 'ആംഗ്യം → അർത്ഥം → ശബ്ദം → മാതൃക സൂചനകൾ.',
     comprehension: 'ഗ്രഹണ പരിശീലനം',
     comprehensionDesc: 'വാക്ക് കേട്ട് ശരിയായ ചിത്രം തിരഞ്ഞെടുക്കുക.',
+    gesture: 'ആംഗ്യ ചികിത്സ',
+    gestureDesc: 'ഓരോ വാക്കിനോടും ആംഗ്യം ജോടിയാക്കുക — ഗ്ലോബൽ അഫേഷ്യയ്ക്ക് നിർണ്ണായകം.',
     listen: 'കേൾക്കുക',
     giveCue: 'സൂചന നൽകുക',
+    gestureCue: 'ആംഗ്യ സൂചന',
     semanticCue: 'അർത്ഥ സൂചന',
     phonologicalCue: 'ശബ്ദ സൂചന',
     modelCue: 'പൂർണ്ണ വാക്ക്',
@@ -151,10 +196,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'പുരോഗതി',
     exportCsv: 'സെഷൻ കയറ്റുമതി (CSV)',
     pickPicture: 'ശരിയായ ചിത്രം തൊടുക',
-    futureScope: 'ഭാവി വ്യാപ്തി (YTI)',
-    voiceClone: 'വോയിസ് ക്ലോണിംഗ്',
-    gesture: 'ആംഗ്യ മൊഡ്യൂൾ',
-    comingSoon: 'ഉടൻ വരുന്നു',
+    voiceBank: 'പരിചിത ശബ്ദ ബാങ്ക്',
+    voiceBankSubtitle: 'പ്രിയപ്പെട്ടവരുടെ ശബ്ദത്തിൽ വാക്കുകൾ റെക്കോർഡ് ചെയ്യുക',
+    recordedSoFar: 'റെക്കോർഡ് ചെയ്തു',
+    recordedBy: 'റെക്കോർഡ് ചെയ്തത്',
+    familiarVoiceHint: 'പരിചിത ശബ്ദം (ഇണ, കുട്ടി, പരിചാരകൻ) TTS-നേക്കാൾ ശക്തമായ അർത്ഥ ശൃംഖലകൾ സജീവമാക്കുന്നു.',
+    playedFamiliarVoice: 'പരിചിത ശബ്ദം പ്ലേ ചെയ്തു',
+    playedTtsVoice: 'കൃത്രിമ ശബ്ദം പ്ലേ ചെയ്തു',
+    lookAndSay: 'നോക്കൂ പറയൂ',
+    doGesture: 'ഈ ആംഗ്യം ചെയ്യുക',
+    listenWhileGesturing: 'ആംഗ്യം ചെയ്തുകൊണ്ട് കേൾക്കുക',
+    gesturePairInstruction: 'ആംഗ്യം ചെയ്തുകൊണ്ട് തന്നെ വാക്ക് പറയുക.',
   },
   ta: {
     chooseLanguage: 'உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்',
@@ -163,11 +215,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT பயிற்சி',
     ciltDesc: 'பார், கேள், சொல் — கட்டுப்பாட்டு பயிற்சி.',
     cueing: 'குறிப்பு வரிசை',
-    cueingDesc: 'பொருள் → ஒலி → மாதிரி குறிப்புகள்.',
+    cueingDesc: 'சைகை → பொருள் → ஒலி → மாதிரி குறிப்புகள்.',
     comprehension: 'புரிதல் பயிற்சி',
     comprehensionDesc: 'சொல்லைக் கேட்டு சரியான படத்தைத் தொடவும்.',
+    gesture: 'சைகை சிகிச்சை',
+    gestureDesc: 'ஒவ்வொரு சொல்லுடன் சைகையை இணை — குளோபல் அஃபேசியாவுக்கு முக்கியம்.',
     listen: 'கேளுங்கள்',
     giveCue: 'குறிப்பு தரவும்',
+    gestureCue: 'சைகை குறிப்பு',
     semanticCue: 'பொருள் குறிப்பு',
     phonologicalCue: 'ஒலி குறிப்பு',
     modelCue: 'முழு சொல்',
@@ -180,10 +235,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'முன்னேற்றம்',
     exportCsv: 'அமர்வை ஏற்றுமதி (CSV)',
     pickPicture: 'சரியான படத்தைத் தொடவும்',
-    futureScope: 'எதிர்கால திட்டம் (YTI)',
-    voiceClone: 'குரல் நகலாக்கம்',
-    gesture: 'சைகை தொகுதி',
-    comingSoon: 'விரைவில்',
+    voiceBank: 'பழகிய குரல் வங்கி',
+    voiceBankSubtitle: 'அன்பானவரின் குரலில் சொற்களை பதிவு செய்யுங்கள்',
+    recordedSoFar: 'பதிவாகியது',
+    recordedBy: 'பதிவு செய்தவர்',
+    familiarVoiceHint: 'பழகிய குரல் (வாழ்க்கைத் துணை, குழந்தை, பராமரிப்பாளர்) TTS ஐ விட வலுவான அர்த்த வலையமைப்புகளை செயல்படுத்துகிறது.',
+    playedFamiliarVoice: 'பழகிய குரல் இயக்கப்பட்டது',
+    playedTtsVoice: 'செயற்கை குரல் இயக்கப்பட்டது',
+    lookAndSay: 'பாருங்கள் சொல்லுங்கள்',
+    doGesture: 'இந்த சைகையை செய்யுங்கள்',
+    listenWhileGesturing: 'சைகை செய்தபடி கேளுங்கள்',
+    gesturePairInstruction: 'சைகை செய்தபடி அதே நேரத்தில் சொல்லைச் சொல்லுங்கள்.',
   },
   te: {
     chooseLanguage: 'మీ భాషను ఎంచుకోండి',
@@ -192,11 +254,14 @@ export const UI: Record<LangCode, UILabels> = {
     cilt: 'CILT అభ్యాసం',
     ciltDesc: 'చూడండి, వినండి, మాట్లాడండి — నియంత్రిత అభ్యాసం.',
     cueing: 'సూచన శ్రేణి',
-    cueingDesc: 'అర్థం → ధ్వని → మాదిరి సూచనలు.',
+    cueingDesc: 'సంజ్ఞ → అర్థం → ధ్వని → మాదిరి సూచనలు.',
     comprehension: 'అవగాహన అభ్యాసం',
     comprehensionDesc: 'మాట విని సరైన చిత్రాన్ని ఎంచుకోండి.',
+    gesture: 'సంజ్ఞ చికిత్స',
+    gestureDesc: 'ప్రతి పదానికి సంజ్ఞను జతచేయండి — గ్లోబల్ అఫేసియాకు కీలకం.',
     listen: 'వినండి',
     giveCue: 'సూచన ఇవ్వండి',
+    gestureCue: 'సంజ్ఞ సూచన',
     semanticCue: 'అర్థ సూచన',
     phonologicalCue: 'ధ్వని సూచన',
     modelCue: 'పూర్తి పదం',
@@ -209,10 +274,17 @@ export const UI: Record<LangCode, UILabels> = {
     progress: 'పురోగతి',
     exportCsv: 'సెషన్‌ను ఎగుమతి (CSV)',
     pickPicture: 'సరైన చిత్రాన్ని తాకండి',
-    futureScope: 'భవిష్యత్ ప్రణాళిక (YTI)',
-    voiceClone: 'వాయిస్ క్లోనింగ్',
-    gesture: 'సంజ్ఞ మాడ్యూల్',
-    comingSoon: 'త్వరలో',
+    voiceBank: 'పరిచిత స్వర బ్యాంక్',
+    voiceBankSubtitle: 'ప్రియమైనవారి స్వరంలో పదాలను రికార్డ్ చేయండి',
+    recordedSoFar: 'రికార్డ్ అయింది',
+    recordedBy: 'రికార్డ్ చేసినవారు',
+    familiarVoiceHint: 'పరిచిత స్వరం (జీవిత భాగస్వామి, పిల్లలు, సంరక్షకుడు) TTS కంటే బలమైన అర్థ నెట్‌వర్క్‌లను సక్రియం చేస్తుంది.',
+    playedFamiliarVoice: 'పరిచిత స్వరం ప్లే అయింది',
+    playedTtsVoice: 'కృత్రిమ స్వరం ప్లే అయింది',
+    lookAndSay: 'చూసి చెప్పండి',
+    doGesture: 'ఈ సంజ్ఞ చేయండి',
+    listenWhileGesturing: 'సంజ్ఞ చేస్తూ వినండి',
+    gesturePairInstruction: 'సంజ్ఞ చేస్తూ అదే సమయంలో పదాన్ని చెప్పండి.',
   },
 };
 

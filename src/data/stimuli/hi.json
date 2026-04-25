@@ -9,6 +9,8 @@
       "emoji": "🍌",
       "semanticCue": "यह एक फल है। लंबा और पीला।",
       "phonologicalCue": "यह /के/ से शुरू होता है…",
+      "gesture": "केले को छीलकर खाने का इशारा करें।",
+      "gestureEmoji": "🤲",
       "distractorEmojis": ["🍎", "🍇", "🍊"]
     },
     {
@@ -18,6 +20,8 @@
       "emoji": "🍎",
       "semanticCue": "यह एक फल है। गोल और लाल।",
       "phonologicalCue": "यह /से/ से शुरू होता है…",
+      "gesture": "एक हाथ में पकड़कर काटने का इशारा करें।",
+      "gestureEmoji": "🤏",
       "distractorEmojis": ["🍌", "🍊", "🍇"]
     },
     {
@@ -27,6 +31,8 @@
       "emoji": "💧",
       "semanticCue": "प्यास लगने पर पीते हैं।",
       "phonologicalCue": "यह /पा/ से शुरू होता है…",
+      "gesture": "हथेली को मुँह तक ले जाकर पीने का इशारा।",
+      "gestureEmoji": "🥤",
       "distractorEmojis": ["🍵", "🥛", "🧃"]
     },
     {
@@ -36,6 +42,8 @@
       "emoji": "☕",
       "semanticCue": "इसमें पीते हैं।",
       "phonologicalCue": "यह /क/ से शुरू होता है…",
+      "gesture": "कप का हैंडल पकड़कर मुँह तक ले जाएँ।",
+      "gestureEmoji": "✋",
       "distractorEmojis": ["🍽️", "🥄", "🍴"]
     },
     {
@@ -45,6 +53,8 @@
       "emoji": "🪑",
       "semanticCue": "इस पर बैठते हैं।",
       "phonologicalCue": "यह /कु/ से शुरू होता है…",
+      "gesture": "बैठने जैसे थोड़ा झुकें।",
+      "gestureEmoji": "🧎",
       "distractorEmojis": ["🛏️", "🪟", "🚪"]
     },
     {
@@ -54,6 +64,8 @@
       "emoji": "🛏️",
       "semanticCue": "रात को इस पर सोते हैं।",
       "phonologicalCue": "यह /बि/ से शुरू होता है…",
+      "gesture": "हाथों पर सिर रखकर सोने का इशारा।",
+      "gestureEmoji": "🛌",
       "distractorEmojis": ["🪑", "🛋️", "🚪"]
     },
     {
@@ -63,6 +75,8 @@
       "emoji": "🐕",
       "semanticCue": "एक जानवर। भौंकता है।",
       "phonologicalCue": "यह /कु/ से शुरू होता है…",
+      "gesture": "जाँघ थपथपाकर पालतू को बुलाने का इशारा।",
+      "gestureEmoji": "🐾",
       "distractorEmojis": ["🐈", "🐄", "🐇"]
     },
     {
@@ -72,6 +86,8 @@
       "emoji": "🍵",
       "semanticCue": "एक गरम पेय।",
       "phonologicalCue": "यह /चा/ से शुरू होता है…",
+      "gesture": "छोटा कप पकड़कर फूँक मारें फिर पीएँ।",
+      "gestureEmoji": "🍵",
       "distractorEmojis": ["☕", "🥛", "🧃"]
     },
     {
@@ -81,6 +97,8 @@
       "emoji": "📖",
       "semanticCue": "इसे पढ़ते हैं। पन्ने होते हैं।",
       "phonologicalCue": "यह /कि/ से शुरू होता है…",
+      "gesture": "दोनों हथेलियाँ खोलकर किताब बनाएँ।",
+      "gestureEmoji": "📖",
       "distractorEmojis": ["📱", "📺", "📰"]
     },
     {
@@ -90,6 +108,8 @@
       "emoji": "🏠",
       "semanticCue": "जहाँ आप रहते हैं।",
       "phonologicalCue": "यह /घ/ से शुरू होता है…",
+      "gesture": "सिर के ऊपर उँगलियाँ मिलाकर छत बनाएँ।",
+      "gestureEmoji": "🛖",
       "distractorEmojis": ["🏥", "🏫", "🏪"]
     }
   ]

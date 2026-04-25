@@ -7,6 +7,8 @@ import TherapyHub from './components/TherapyHub';
 import CILTDrill from './components/CILTDrill';
 import CueingHierarchy from './components/CueingHierarchy';
 import ComprehensionPractice from './components/ComprehensionPractice';
+import GestureTherapy from './components/GestureTherapy';
+import VoiceBank from './components/VoiceBank';
 import ProgressDashboard from './components/ProgressDashboard';
 import { useSpeech } from './hooks/useSpeech';
 import { LANG_META } from './i18n/ui';
@@ -20,6 +22,8 @@ type Screen =
   | 'module-cilt'
   | 'module-cueing'
   | 'module-comprehension'
+  | 'module-gesture'
+  | 'voice-bank'
   | 'session-complete'
   | 'progress';
 
@@ -30,7 +34,7 @@ function App() {
   const [allEntries, setAllEntries] = useState<SessionEntry[]>([]);
   const [lastSessionCount, setLastSessionCount] = useState(0);
 
-  const { speak, hasVoiceForLang } = useSpeech(lang);
+  const { hasVoiceForLang } = useSpeech(lang);
 
   const handleLang = (l: LangCode) => {
     setLang(l);
@@ -45,7 +49,8 @@ function App() {
   const handleModule = (m: ModuleId) => {
     if (m === 'cilt') setScreen('module-cilt');
     else if (m === 'cueing') setScreen('module-cueing');
-    else setScreen('module-comprehension');
+    else if (m === 'comprehension') setScreen('module-comprehension');
+    else if (m === 'gesture') setScreen('module-gesture');
   };
 
   const handleSessionDone = (entries: SessionEntry[]) => {
@@ -96,13 +101,15 @@ function App() {
           <>
             {!hasVoiceForLang && (
               <div className="tts-warn">
-                ⚠ No on-device voice found for {LANG_META[lang].label}. Text cues will still display.
+                ⚠ No on-device voice found for {LANG_META[lang].label}. Record
+                familiar voices in the Voice Bank to bridge the gap.
               </div>
             )}
             <TherapyHub
               lang={lang}
               aphasia={aphasia}
               onSelectModule={handleModule}
+              onOpenVoiceBank={() => setScreen('voice-bank')}
               onOpenProgress={() => setScreen('progress')}
               onBack={() => setScreen('aphasia')}
             />
@@ -112,7 +119,6 @@ function App() {
         {screen === 'module-cilt' && (
           <CILTDrill
             lang={lang}
-            speak={speak}
             onComplete={handleSessionDone}
             onBack={() => setScreen('hub')}
           />
@@ -121,7 +127,6 @@ function App() {
         {screen === 'module-cueing' && (
           <CueingHierarchy
             lang={lang}
-            speak={speak}
             onComplete={handleSessionDone}
             onBack={() => setScreen('hub')}
           />
@@ -130,10 +135,21 @@ function App() {
         {screen === 'module-comprehension' && (
           <ComprehensionPractice
             lang={lang}
-            speak={speak}
             onComplete={handleSessionDone}
             onBack={() => setScreen('hub')}
           />
+        )}
+
+        {screen === 'module-gesture' && (
+          <GestureTherapy
+            lang={lang}
+            onComplete={handleSessionDone}
+            onBack={() => setScreen('hub')}
+          />
+        )}
+
+        {screen === 'voice-bank' && (
+          <VoiceBank lang={lang} onBack={() => setScreen('hub')} />
         )}
 
         {screen === 'session-complete' && (

@@ -8,6 +8,8 @@
       "emoji": "🍌",
       "semanticCue": "It is a fruit. It is long and yellow.",
       "phonologicalCue": "It starts with /ba/…",
+      "gesture": "Mime peeling a banana, then take a bite.",
+      "gestureEmoji": "🤲",
       "distractorEmojis": ["🍎", "🍇", "🍊"]
     },
     {
@@ -16,6 +18,8 @@
       "emoji": "🍎",
       "semanticCue": "It is a fruit. It is round and red.",
       "phonologicalCue": "It starts with /æ/…",
+      "gesture": "Hold an imaginary round fruit in one hand and bite.",
+      "gestureEmoji": "🤏",
       "distractorEmojis": ["🍌", "🍊", "🍇"]
     },
     {
@@ -24,6 +28,8 @@
       "emoji": "💧",
       "semanticCue": "You drink it when you are thirsty.",
       "phonologicalCue": "It starts with /wɔ/…",
+      "gesture": "Cup your hand and bring it to your mouth.",
+      "gestureEmoji": "🥤",
       "distractorEmojis": ["🍵", "🥛", "🧃"]
     },
     {
@@ -32,6 +38,8 @@
       "emoji": "☕",
       "semanticCue": "You drink from it. It has a handle.",
       "phonologicalCue": "It starts with /k/…",
+      "gesture": "Pinch a handle with your fingers and lift to your lips.",
+      "gestureEmoji": "✋",
       "distractorEmojis": ["🍽️", "🥄", "🍴"]
     },
     {
@@ -40,6 +48,8 @@
       "emoji": "🪑",
       "semanticCue": "You sit on it. It has four legs.",
       "phonologicalCue": "It starts with /tʃ/…",
+      "gesture": "Lower yourself slightly as if sitting down.",
+      "gestureEmoji": "🧎",
       "distractorEmojis": ["🛏️", "🪟", "🚪"]
     },
     {
@@ -48,6 +58,8 @@
       "emoji": "🛏️",
       "semanticCue": "You sleep on it at night.",
       "phonologicalCue": "It starts with /b/…",
+      "gesture": "Tilt your head onto folded hands like a pillow.",
+      "gestureEmoji": "🛌",
       "distractorEmojis": ["🪑", "🛋️", "🚪"]
     },
     {
@@ -56,6 +68,8 @@
       "emoji": "🐕",
       "semanticCue": "It is an animal. It barks.",
       "phonologicalCue": "It starts with /d/…",
+      "gesture": "Pat your thigh as if calling a pet.",
+      "gestureEmoji": "🐾",
       "distractorEmojis": ["🐈", "🐄", "🐇"]
     },
     {
@@ -64,6 +78,8 @@
       "emoji": "🍵",
       "semanticCue": "A hot drink. Brown in colour.",
       "phonologicalCue": "It starts with /t/…",
+      "gesture": "Hold a small cup and blow gently before sipping.",
+      "gestureEmoji": "🍵",
       "distractorEmojis": ["☕", "🥛", "🧃"]
     },
     {
@@ -72,6 +88,8 @@
       "emoji": "📖",
       "semanticCue": "You read it. It has pages.",
       "phonologicalCue": "It starts with /b/…",
+      "gesture": "Open both palms together like an open book.",
+      "gestureEmoji": "📖",
       "distractorEmojis": ["📱", "📺", "📰"]
     },
     {
@@ -80,6 +98,8 @@
       "emoji": "🏠",
       "semanticCue": "A place where you live.",
       "phonologicalCue": "It starts with /h/…",
+      "gesture": "Touch fingertips above your head to form a roof.",
+      "gestureEmoji": "🛖",
       "distractorEmojis": ["🏥", "🏫", "🏪"]
     }
   ]

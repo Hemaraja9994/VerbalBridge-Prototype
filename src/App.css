@@ -680,6 +680,17 @@ button.logo-button:hover {
   position: relative;
 }
 
+.cue-gesture {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%);
+  border-left: 3px solid #8b5cf6;
+}
+
+.cue-emoji-inline {
+  display: inline-block;
+  margin-left: 0.25rem;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+
 .cue-semantic {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(99, 102, 241, 0.02) 100%);
   border-left: 3px solid var(--accent);
@@ -1017,6 +1028,346 @@ tbody tr:hover { background: rgba(20, 184, 166, 0.04); }
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* === Hub utility (Voice Bank entry tile) === */
+
+.hub-utility {
+  display: block;
+}
+
+.hub-utility-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+  border: 1px solid rgba(244, 63, 94, 0.18);
+  cursor: pointer;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.hub-utility-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-lg);
+  border-color: var(--rose-500);
+}
+
+.hub-utility-icon {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--rose-50) 0%, var(--teal-50) 100%);
+  flex-shrink: 0;
+}
+
+.hub-utility-text {
+  flex: 1;
+}
+
+.hub-utility-text h4 {
+  margin: 0 0 0.15rem;
+  color: var(--primary-900);
+}
+
+.hub-utility-text p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.hub-utility-arrow {
+  font-size: 1.4rem;
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+/* === Voice Bank screen === */
+
+.voice-bank-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.voice-bank-progress {
+  text-align: center;
+}
+
+.vb-ring {
+  --pct: 0;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background:
+    conic-gradient(var(--teal-500) calc(var(--pct) * 1%), rgba(20, 184, 166, 0.12) 0);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto var(--space-xs);
+  transition: background 0.4s var(--ease-out);
+}
+
+.vb-ring::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: var(--surface-elevated);
+  border-radius: inherit;
+}
+
+.vb-ring span {
+  position: relative;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  color: var(--primary-900);
+  font-size: 1.05rem;
+}
+
+.voice-bank-config {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.vb-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+}
+
+.vb-input {
+  font: inherit;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border-soft);
+  background: var(--surface-elevated);
+  color: var(--text-main);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.vb-input:focus {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 1px;
+}
+
+.vb-hint {
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
+.voice-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.voice-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.voice-row.has-rec {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.04) 0%, rgba(255, 255, 255, 0.6) 60%);
+}
+
+.vb-emoji {
+  font-size: 2.4rem;
+  text-align: center;
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.1));
+}
+
+.vb-word {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.vb-word strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  color: var(--primary-900);
+}
+
+.vb-translit {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.vb-meta {
+  font-size: 0.75rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.vb-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.vb-btn {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.vb-rerecord {
+  color: var(--text-muted);
+}
+
+.vb-stop {
+  background: linear-gradient(135deg, var(--rose-500) 0%, #fb7185 100%);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.vb-delete:hover {
+  color: var(--error);
+}
+
+.voice-bank-footer {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* === Voice source badge (in CILT) === */
+
+.voice-source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-sm);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  animation: fadeIn 0.3s var(--ease-out);
+}
+
+.voice-source-badge.familiar {
+  background: rgba(244, 63, 94, 0.1);
+  color: var(--rose-500);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+.voice-source-badge.tts {
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+}
+
+/* === Gesture Therapy module === */
+
+.gesture-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.gesture-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.gesture-side-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.gesture-emoji {
+  filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3));
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.gesture-divider {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+.gesture-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* === Voice source summary in dashboard === */
+
+.voice-source-summary {
+  padding: var(--space-lg);
+}
+
+.voice-mix-bar {
+  display: flex;
+  height: 32px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1) inset;
+  background: var(--glass-border-soft);
+}
+
+.voice-mix-familiar {
+  background: linear-gradient(90deg, var(--rose-500) 0%, #fb7185 100%);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s var(--ease-out);
+  white-space: nowrap;
+}
+
+.voice-mix-tts {
+  background: linear-gradient(90deg, var(--accent) 0%, #818cf8 100%);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s var(--ease-out);
+  white-space: nowrap;
+}
+
+.voice-mix-legend {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 /* === Responsive === */
 
 @media (max-width: 768px) {
@@ -1035,4 +1386,9 @@ tbody tr:hover { background: rgba(20, 184, 166, 0.04); }
   .comp-option { padding: var(--space-lg); }
   .comp-emoji { font-size: 4rem; }
   .welcome-pillars { grid-template-columns: 1fr; }
+  .voice-row { grid-template-columns: 48px 1fr; }
+  .vb-actions { grid-column: 1 / -1; justify-content: flex-end; }
+  .gesture-pair { grid-template-columns: 1fr; }
+  .gesture-divider { transform: rotate(90deg); justify-self: center; }
+  .voice-bank-header { flex-direction: column; }
 }

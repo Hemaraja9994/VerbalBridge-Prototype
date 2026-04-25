@@ -16,14 +16,14 @@ const PILLARS = [
     desc: 'Therapy delivered in 6 Indian languages — not English-only.',
   },
   {
-    icon: '🩺',
-    title: 'SLP-Guided Workflow',
-    desc: 'Structured drills with cue-level logging for clinical review.',
+    icon: '🎙️',
+    title: 'Familiar Voice Bank',
+    desc: 'Caregivers record words in their own voice — stronger than synthetic TTS.',
   },
   {
-    icon: '🔮',
-    title: 'Future: Voice + Gesture',
-    desc: 'Voice cloning for familiar models, gesture cues for global aphasia.',
+    icon: '✋',
+    title: 'Gesture Therapy',
+    desc: 'Pair every word with a gesture — vital for global & severe aphasia.',
   },
 ];
 
