@@ -1368,6 +1368,151 @@ tbody tr:hover { background: rgba(20, 184, 166, 0.04); }
   text-align: center;
 }
 
+/* === ASR (Speech Recognition) UI === */
+
+.cilt-action-row,
+.cue-asr-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.asr-btn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.32);
+}
+
+.asr-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+.asr-btn.listening {
+  background: linear-gradient(135deg, var(--rose-500) 0%, #fb7185 100%);
+  animation: pulse 1.2s ease-in-out infinite;
+  box-shadow: 0 0 0 6px rgba(244, 63, 94, 0.18), 0 4px 16px rgba(244, 63, 94, 0.35);
+}
+
+.asr-result {
+  margin-top: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  animation: fadeInScale 0.3s var(--ease-spring);
+  border-left: 4px solid var(--text-faint);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.asr-result.asr-produced {
+  border-left-color: var(--success);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%);
+}
+
+.asr-result.asr-approximated {
+  border-left-color: var(--amber-500);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%);
+}
+
+.asr-result.asr-not-attempted {
+  border-left-color: var(--error);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.06) 0%, rgba(239, 68, 68, 0.02) 100%);
+}
+
+.asr-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.asr-transcript {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-900);
+  line-height: 1.2;
+}
+
+.asr-meta {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* === AI personalised cue === */
+
+.cue-line-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: 0.25rem;
+}
+
+.ai-personalise-btn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ai-personalise-btn:not(:disabled):hover {
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.45);
+}
+
+.ai-cue-tag {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.08);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  animation: fadeIn 0.3s var(--ease-out);
+}
+
+/* === Adaptive engine banner === */
+
+.adaptive-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(99, 102, 241, 0.08) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--primary-900);
+  font-weight: 600;
+  animation: fadeIn 0.3s var(--ease-out);
+}
+
+.adaptive-banner b {
+  color: #6366f1;
+}
+
+.adaptive-samples {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+
 /* === Responsive === */
 
 @media (max-width: 768px) {

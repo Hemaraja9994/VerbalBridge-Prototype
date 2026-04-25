@@ -6,38 +6,39 @@ interface Props {
 
 const PILLARS = [
   {
+    icon: '🤖',
+    title: 'AI Speech Recognition',
+    desc: 'On-device ASR transcribes each attempt and auto-grades it against the target.',
+  },
+  {
     icon: '🧠',
-    title: 'Speech Regeneration',
-    desc: 'Neuroplasticity-based therapy via CILT and cueing hierarchy.',
+    title: 'Adaptive Cueing Engine',
+    desc: 'Learns which cue depth each item needs and personalises the starting rung.',
   },
   {
     icon: '🌐',
     title: 'Mother-tongue Therapy',
-    desc: 'Therapy delivered in 6 Indian languages — not English-only.',
+    desc: 'CILT, cueing, comprehension & gesture in 6 Indian languages.',
   },
   {
     icon: '🎙️',
-    title: 'Familiar Voice Bank',
-    desc: 'Caregivers record words in their own voice — stronger than synthetic TTS.',
-  },
-  {
-    icon: '✋',
-    title: 'Gesture Therapy',
-    desc: 'Pair every word with a gesture — vital for global & severe aphasia.',
+    title: 'Familiar Voice + Gesture',
+    desc: 'Caregivers record voices; gesture cues recruit motor cortex pathways.',
   },
 ];
 
 const WelcomeSplash: React.FC<Props> = ({ onStart }) => {
   return (
     <section className="welcome-screen">
-      <span className="welcome-eyebrow">AIISH Hack'A'Comm 2026 · Mysore</span>
+      <span className="welcome-eyebrow">AIISH Hack'A'Comm 2026 · Problem Statement 3</span>
 
       <h1 className="welcome-title">Rebuild speech in the language of home.</h1>
 
       <p className="welcome-mission">
-        VerbalBridge is an AI-assisted, neuroplasticity-based speech regeneration
-        platform for persons with aphasia — guided by Speech-Language Pathologists
-        and delivered in the patient's mother tongue.
+        VerbalBridge is an <b>AI-driven</b>, neuroplasticity-based speech regeneration
+        platform for persons with aphasia. Speech recognition grades each attempt,
+        an adaptive engine personalises cue depth, and therapy is delivered
+        in the patient's mother tongue.
       </p>
 
       <div className="welcome-cta">

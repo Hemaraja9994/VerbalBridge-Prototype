@@ -48,6 +48,16 @@ export interface SessionEntry {
   outcome: Outcome;
   /** Which voice was used as the model cue, if any. */
   voiceSource?: VoiceSource;
+  /** Whether outcome was auto-graded by speech recognition vs manually tapped. */
+  autoGraded?: boolean;
+  /** ASR transcript of the patient's attempt, if recognition was used. */
+  transcript?: string;
+  /** ASR confidence (0..1). */
+  asrConfidence?: number;
+  /** Levenshtein edit distance between transcript and target word. */
+  editDistance?: number;
+  /** If the cue level was suggested by the adaptive engine. */
+  adaptiveSuggested?: boolean;
   timestamp: number;
 }
 

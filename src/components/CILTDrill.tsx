@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { UI } from '../i18n/ui';
 import { getStimuli } from '../data/stimuli';
 import { useFamiliarVoice } from '../hooks/useFamiliarVoice';
+import { useRecognition, type AsrResult } from '../hooks/useRecognition';
+import { recordCueOutcome } from '../lib/adaptiveEngine';
 import type { LangCode, Outcome, SessionEntry, VoiceSource } from '../types';
 
 interface Props {
@@ -14,10 +16,12 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
   const t = UI[lang];
   const items = useMemo(() => getStimuli(lang).items, [lang]);
   const { speakItem, lastSource } = useFamiliarVoice(lang);
+  const { listen, listening, supported: asrSupported } = useRecognition(lang);
   const [index, setIndex] = useState(0);
   const [entries, setEntries] = useState<SessionEntry[]>([]);
   const [listened, setListened] = useState(false);
   const [usedSource, setUsedSource] = useState<VoiceSource>('none');
+  const [asrResult, setAsrResult] = useState<AsrResult | null>(null);
 
   const current = items[index];
   const isLast = index === items.length - 1;
@@ -28,25 +32,56 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
     setListened(true);
   };
 
-  const handleOutcome = (outcome: Outcome) => {
-    const entry: SessionEntry = {
-      itemId: current.id,
-      word: current.word,
-      module: 'cilt',
-      cueLevel: listened ? 'model' : 'unaided',
-      outcome,
-      voiceSource: listened ? lastSource() : undefined,
-      timestamp: Date.now(),
-    };
+  const advance = (entry: SessionEntry) => {
     const next = [...entries, entry];
     setEntries(next);
     setListened(false);
     setUsedSource('none');
+    setAsrResult(null);
     if (isLast) {
       onComplete(next);
     } else {
       setIndex(index + 1);
     }
+  };
+
+  const recordEntry = (
+    outcome: Outcome,
+    extras: Partial<SessionEntry> = {}
+  ): SessionEntry => ({
+    itemId: current.id,
+    word: current.word,
+    module: 'cilt',
+    cueLevel: listened ? 'model' : 'unaided',
+    outcome,
+    voiceSource: listened ? lastSource() : undefined,
+    timestamp: Date.now(),
+    ...extras,
+  });
+
+  const handleOutcome = (outcome: Outcome) => {
+    const entry = recordEntry(outcome);
+    if (outcome !== 'not-attempted') {
+      recordCueOutcome(current.id, entry.cueLevel);
+    }
+    advance(entry);
+  };
+
+  const handleYourTurn = async () => {
+    setAsrResult(null);
+    const result = await listen(current.word, 5500);
+    setAsrResult(result);
+    // Auto-advance after a short pause so the SLP can see the transcription
+    const entry = recordEntry(result.score, {
+      autoGraded: true,
+      transcript: result.transcript,
+      asrConfidence: result.confidence,
+      editDistance: result.distance >= 0 ? result.distance : undefined,
+    });
+    if (result.score !== 'not-attempted') {
+      recordCueOutcome(current.id, entry.cueLevel);
+    }
+    setTimeout(() => advance(entry), 1400);
   };
 
   return (
@@ -78,9 +113,20 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
           <div className="stimulus-translit">/{current.translit}/</div>
         )}
 
-        <button className="primary listen-btn mt-lg" onClick={handleListen}>
-          🔊 {t.listen}
-        </button>
+        <div className="cilt-action-row mt-lg">
+          <button className="primary listen-btn" onClick={handleListen} disabled={listening}>
+            🔊 {t.listen}
+          </button>
+          {asrSupported && (
+            <button
+              className={`primary asr-btn ${listening ? 'listening' : ''}`}
+              onClick={handleYourTurn}
+              disabled={listening}
+            >
+              {listening ? `🎤 ${t.listening}` : `🎤 ${t.yourTurn}`}
+            </button>
+          )}
+        </div>
 
         {listened && usedSource === 'familiar' && (
           <div className="voice-source-badge familiar">
@@ -93,8 +139,26 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
           </div>
         )}
 
+        {asrResult && (
+          <div className={`asr-result asr-${asrResult.score}`}>
+            <div className="asr-label">🤖 {t.aiHeard}</div>
+            <div className="asr-transcript">
+              {asrResult.transcript ? `"${asrResult.transcript}"` : t.noSpeechDetected}
+            </div>
+            {asrResult.transcript && (
+              <div className="asr-meta">
+                {t.editDistance}: {asrResult.distance} ·
+                {' '}{t.confidence}: {(asrResult.confidence * 100).toFixed(0)}% ·
+                {' '}<b>{t[asrResult.score === 'produced' ? 'produced' : asrResult.score === 'approximated' ? 'approximated' : 'notAttempted']}</b>
+              </div>
+            )}
+          </div>
+        )}
+
         <p className="instruction mt-md">
-          Look at the picture. Listen. Say the word aloud.
+          {asrSupported
+            ? 'Look at the picture. Listen, then tap "Your turn" and say the word.'
+            : 'Look at the picture. Listen. Say the word aloud.'}
         </p>
       </div>
 
@@ -102,18 +166,21 @@ const CILTDrill: React.FC<Props> = ({ lang, onComplete, onBack }) => {
         <button
           className="outcome-btn outcome-produced"
           onClick={() => handleOutcome('produced')}
+          disabled={listening || !!asrResult}
         >
           ✅ {t.produced}
         </button>
         <button
           className="outcome-btn outcome-approx"
           onClick={() => handleOutcome('approximated')}
+          disabled={listening || !!asrResult}
         >
           ➗ {t.approximated}
         </button>
         <button
           className="outcome-btn outcome-none"
           onClick={() => handleOutcome('not-attempted')}
+          disabled={listening || !!asrResult}
         >
           ⭕ {t.notAttempted}
         </button>

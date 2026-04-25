@@ -49,6 +49,19 @@ export interface UILabels {
   doGesture: string;
   listenWhileGesturing: string;
   gesturePairInstruction: string;
+  // ASR + adaptive AI
+  yourTurn: string;
+  listening: string;
+  aiHeard: string;
+  noSpeechDetected: string;
+  editDistance: string;
+  confidence: string;
+  aiAdaptiveStart: string;
+  cue_unaided: string;
+  cue_gesture: string;
+  cue_semantic: string;
+  cue_phonological: string;
+  cue_model: string;
 }
 
 export const UI: Record<LangCode, UILabels> = {
@@ -90,6 +103,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'Do this gesture',
     listenWhileGesturing: 'Listen while gesturing',
     gesturePairInstruction: 'Make the gesture and say the word at the same time.',
+    yourTurn: 'Your turn',
+    listening: 'Listening…',
+    aiHeard: 'AI heard',
+    noSpeechDetected: 'No speech detected — try again.',
+    editDistance: 'Edit distance',
+    confidence: 'Confidence',
+    aiAdaptiveStart: 'AI suggested starting cue',
+    cue_unaided: 'Unaided',
+    cue_gesture: 'Gesture',
+    cue_semantic: 'Semantic',
+    cue_phonological: 'Phonological',
+    cue_model: 'Model',
   },
   kn: {
     chooseLanguage: 'ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
@@ -129,6 +154,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'ಈ ಸನ್ನೆ ಮಾಡಿ',
     listenWhileGesturing: 'ಸನ್ನೆ ಮಾಡುತ್ತಾ ಕೇಳಿ',
     gesturePairInstruction: 'ಸನ್ನೆ ಮಾಡುತ್ತಾ ಅದೇ ಸಮಯದಲ್ಲಿ ಪದವನ್ನು ಹೇಳಿ.',
+    yourTurn: 'ನಿಮ್ಮ ಸರದಿ',
+    listening: 'ಕೇಳುತ್ತಿದೆ…',
+    aiHeard: 'AI ಕೇಳಿತು',
+    noSpeechDetected: 'ಮಾತು ಪತ್ತೆಯಾಗಲಿಲ್ಲ — ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+    editDistance: 'ವ್ಯತ್ಯಾಸ',
+    confidence: 'ವಿಶ್ವಾಸ',
+    aiAdaptiveStart: 'AI ಸೂಚಿಸಿದ ಪ್ರಾರಂಭ ಸೂಚನೆ',
+    cue_unaided: 'ಸಹಾಯವಿಲ್ಲ',
+    cue_gesture: 'ಸನ್ನೆ',
+    cue_semantic: 'ಅರ್ಥ',
+    cue_phonological: 'ಧ್ವನಿ',
+    cue_model: 'ಮಾದರಿ',
   },
   hi: {
     chooseLanguage: 'अपनी भाषा चुनें',
@@ -168,6 +205,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'यह इशारा करें',
     listenWhileGesturing: 'इशारा करते हुए सुनें',
     gesturePairInstruction: 'इशारा करें और साथ में शब्द बोलें।',
+    yourTurn: 'आपकी बारी',
+    listening: 'सुन रहा है…',
+    aiHeard: 'AI ने सुना',
+    noSpeechDetected: 'आवाज़ नहीं सुनी — फिर कोशिश करें।',
+    editDistance: 'अंतर',
+    confidence: 'विश्वास',
+    aiAdaptiveStart: 'AI सुझाया गया शुरुआती संकेत',
+    cue_unaided: 'बिना सहायता',
+    cue_gesture: 'इशारा',
+    cue_semantic: 'अर्थ',
+    cue_phonological: 'ध्वनि',
+    cue_model: 'आदर्श',
   },
   ml: {
     chooseLanguage: 'നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക',
@@ -207,6 +256,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'ഈ ആംഗ്യം ചെയ്യുക',
     listenWhileGesturing: 'ആംഗ്യം ചെയ്തുകൊണ്ട് കേൾക്കുക',
     gesturePairInstruction: 'ആംഗ്യം ചെയ്തുകൊണ്ട് തന്നെ വാക്ക് പറയുക.',
+    yourTurn: 'നിങ്ങളുടെ ഊഴം',
+    listening: 'കേൾക്കുന്നു…',
+    aiHeard: 'AI കേട്ടത്',
+    noSpeechDetected: 'സംസാരം കണ്ടെത്തിയില്ല — വീണ്ടും ശ്രമിക്കുക.',
+    editDistance: 'വ്യത്യാസം',
+    confidence: 'വിശ്വാസം',
+    aiAdaptiveStart: 'AI നിർദ്ദേശിച്ച തുടക്ക സൂചന',
+    cue_unaided: 'സഹായമില്ല',
+    cue_gesture: 'ആംഗ്യം',
+    cue_semantic: 'അർത്ഥം',
+    cue_phonological: 'ശബ്ദം',
+    cue_model: 'മാതൃക',
   },
   ta: {
     chooseLanguage: 'உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்',
@@ -246,6 +307,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'இந்த சைகையை செய்யுங்கள்',
     listenWhileGesturing: 'சைகை செய்தபடி கேளுங்கள்',
     gesturePairInstruction: 'சைகை செய்தபடி அதே நேரத்தில் சொல்லைச் சொல்லுங்கள்.',
+    yourTurn: 'உங்கள் முறை',
+    listening: 'கேட்கிறது…',
+    aiHeard: 'AI கேட்டது',
+    noSpeechDetected: 'பேச்சு கண்டறியப்படவில்லை — மீண்டும் முயற்சி.',
+    editDistance: 'வேறுபாடு',
+    confidence: 'நம்பிக்கை',
+    aiAdaptiveStart: 'AI பரிந்துரைத்த தொடக்க குறிப்பு',
+    cue_unaided: 'உதவியின்றி',
+    cue_gesture: 'சைகை',
+    cue_semantic: 'பொருள்',
+    cue_phonological: 'ஒலி',
+    cue_model: 'மாதிரி',
   },
   te: {
     chooseLanguage: 'మీ భాషను ఎంచుకోండి',
@@ -285,6 +358,18 @@ export const UI: Record<LangCode, UILabels> = {
     doGesture: 'ఈ సంజ్ఞ చేయండి',
     listenWhileGesturing: 'సంజ్ఞ చేస్తూ వినండి',
     gesturePairInstruction: 'సంజ్ఞ చేస్తూ అదే సమయంలో పదాన్ని చెప్పండి.',
+    yourTurn: 'మీ వంతు',
+    listening: 'వింటోంది…',
+    aiHeard: 'AI విన్నది',
+    noSpeechDetected: 'మాట కనుగొనబడలేదు — మళ్ళీ ప్రయత్నించండి.',
+    editDistance: 'వ్యత్యాసం',
+    confidence: 'నమ్మకం',
+    aiAdaptiveStart: 'AI సూచించిన ప్రారంభ సూచన',
+    cue_unaided: 'సహాయం లేకుండా',
+    cue_gesture: 'సంజ్ఞ',
+    cue_semantic: 'అర్థం',
+    cue_phonological: 'ధ్వని',
+    cue_model: 'మాదిరి',
   },
 };
 
