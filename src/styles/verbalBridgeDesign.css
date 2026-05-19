@@ -1,0 +1,1208 @@
+/* =====================================================================
+   VerbalBridge — visual identity "Mother Tongue"
+   Warm cream paper + deep ink + saffron warmth + sage healing.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300..800&family=Space+Grotesk:wght@400..700&family=Noto+Sans+Devanagari:wght@400..700&family=Noto+Sans+Kannada:wght@400..700&family=Noto+Sans+Malayalam:wght@400..700&family=Noto+Sans+Tamil:wght@400..700&family=Noto+Sans+Telugu:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Palette — "mother tongue" (default) */
+  --paper:        #F2EADB;
+  --paper-deep:   #EBE0CB;
+  --paper-soft:   #F8F1E2;
+  --cream:        #FBF6EB;
+  --sand:         #E5D6BC;
+
+  --ink:          #15172A;
+  --ink-2:        #2D2F46;
+  --ink-soft:     #535674;
+  --ink-faint:    #8A8CA3;
+  --hairline:     rgba(21, 23, 42, 0.10);
+  --hairline-soft:rgba(21, 23, 42, 0.05);
+
+  --saffron:      #DC7A3A;
+  --saffron-dk:   #B45F26;
+  --saffron-tint: #F5D9BD;
+
+  --sage:         #5E8770;
+  --sage-dk:      #3E6750;
+  --sage-tint:    #C8D9CC;
+
+  --coral:        #D8595A;
+  --coral-tint:   #F1CCCB;
+
+  --lavender:     #8E84BC;   /* semantic cue */
+  --sky:          #6E96B6;   /* phonological cue */
+  --plum:         #8B5A8E;   /* gesture */
+
+  /* Modular scale (controlled by a11y scale) */
+  --a11y: 1;
+  --t-11: calc(11px * var(--a11y));
+  --t-12: calc(12px * var(--a11y));
+  --t-26: calc(26px * var(--a11y));
+  --t-13: calc(13px * var(--a11y));
+  --t-14: calc(14px * var(--a11y));
+  --t-15: calc(15px * var(--a11y));
+  --t-16: calc(16px * var(--a11y));
+  --t-18: calc(18px * var(--a11y));
+  --t-20: calc(20px * var(--a11y));
+  --t-22: calc(22px * var(--a11y));
+  --t-24: calc(24px * var(--a11y));
+  --t-28: calc(28px * var(--a11y));
+  --t-32: calc(32px * var(--a11y));
+  --t-40: calc(40px * var(--a11y));
+  --t-48: calc(48px * var(--a11y));
+  --t-56: calc(56px * var(--a11y));
+  --t-72: calc(72px * var(--a11y));
+
+  /* Density (controlled by tweak) */
+  --pad-card:    20px;
+  --pad-screen:  20px;
+  --gap-card:    14px;
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Type families */
+  --f-display: 'Bricolage Grotesque', 'Manrope', system-ui;
+  --f-serif:   'Instrument Serif', Georgia, serif;
+  --f-ui:      'Manrope', system-ui, -apple-system, sans-serif;
+  --f-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --f-indic:   'Noto Sans Devanagari','Noto Sans Kannada','Noto Sans Malayalam','Noto Sans Tamil','Noto Sans Telugu', var(--f-display);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --paper:        #15151F;
+  --paper-deep:   #0E0E18;
+  --paper-soft:   #1E1E2C;
+  --cream:        #232333;
+  --sand:         #2C2C40;
+
+  --ink:          #F2EADB;
+  --ink-2:        #DCD3C2;
+  --ink-soft:     #A09D9D;
+  --ink-faint:    #6F6D80;
+  --hairline:     rgba(242, 234, 219, 0.10);
+  --hairline-soft:rgba(242, 234, 219, 0.05);
+
+  --saffron-tint: rgba(220, 122, 58, 0.22);
+  --sage-tint:    rgba(94, 135, 112, 0.22);
+  --coral-tint:   rgba(216, 89, 90, 0.22);
+}
+
+/* Palette variants */
+[data-palette="ink-rose"] {
+  --saffron:      #C9596B;
+  --saffron-dk:   #9D3F4F;
+  --saffron-tint: #ECC9CF;
+  --sage:         #4F7A87;
+  --sage-dk:      #355864;
+  --paper:        #F4ECE6;
+  --paper-deep:   #ECDFD4;
+  --cream:        #FBF5EE;
+}
+
+[data-palette="monsoon"] {
+  --saffron:      #3F86A0;
+  --saffron-dk:   #275E73;
+  --saffron-tint: #C8DDE5;
+  --sage:         #7A8C4D;
+  --sage-dk:      #586733;
+  --paper:        #ECEFE6;
+  --paper-deep:   #DAE0D0;
+  --cream:        #F6F8F0;
+}
+
+[data-palette="clinical"] {
+  --saffron:      #2C5DA9;
+  --saffron-dk:   #1B3D74;
+  --saffron-tint: #C8D7EF;
+  --sage:         #1B8F87;
+  --sage-dk:      #0E6862;
+  --paper:        #F2F4F8;
+  --paper-deep:   #E3E7EE;
+  --cream:        #FAFBFD;
+  --ink:          #0D1B33;
+}
+
+/* =====================================================================
+   Base
+   ===================================================================== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--f-ui);
+  color: var(--ink);
+  background: #E9DFCB;
+  font-size: var(--t-14);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* The mobile frame containers all use .vb (verbalbridge) wrapping */
+.vb {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-ui);
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: var(--t-14);
+}
+
+/* paper texture — subtle radial + grain via gradient */
+.vb::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(220, 122, 58, 0.05), transparent 70%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(94, 135, 112, 0.06), transparent 70%);
+  z-index: 0;
+}
+.vb > * { position: relative; z-index: 1; }
+
+/* Indic per-script */
+.vb[lang="kn"] :is(.indic-text, .vb-stim-word), .vb[lang="kn"] { font-family: var(--f-indic); }
+.vb[lang="hi"] :is(.indic-text, .vb-stim-word), .vb[lang="hi"] { font-family: var(--f-indic); }
+.vb[lang="ml"] :is(.indic-text, .vb-stim-word), .vb[lang="ml"] { font-family: var(--f-indic); }
+.vb[lang="ta"] :is(.indic-text, .vb-stim-word), .vb[lang="ta"] { font-family: var(--f-indic); }
+.vb[lang="te"] :is(.indic-text, .vb-stim-word), .vb[lang="te"] { font-family: var(--f-indic); }
+
+h1, h2, h3, h4 { font-family: var(--f-display); margin: 0; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; font-weight: 600; }
+p { margin: 0; }
+button { font-family: inherit; font-size: inherit; color: inherit; }
+
+/* =====================================================================
+   Top chrome — minimal app bar
+   ===================================================================== */
+.vb-chrome {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px 6px;
+  position: sticky; top: 0; z-index: 5;
+  background: linear-gradient(180deg, var(--paper) 65%, transparent);
+}
+.vb-chrome-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--f-display); font-weight: 600; font-size: var(--t-14);
+  letter-spacing: -0.01em;
+}
+.vb-chrome-logo .dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--saffron) 0%, var(--saffron-dk) 80%);
+  box-shadow: 0 2px 6px rgba(220, 122, 58, 0.35);
+  position: relative;
+}
+.vb-chrome-logo .dot::after {
+  content: ''; position: absolute; inset: 4px;
+  border-radius: 50%; border: 1.5px solid var(--paper);
+  border-top-color: transparent; border-right-color: transparent;
+}
+.vb-back {
+  background: transparent; border: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--ink-soft); font-size: var(--t-13); font-weight: 500;
+  padding: 8px 12px 8px 6px; border-radius: var(--r-pill); cursor: pointer;
+  margin-left: -6px;
+}
+.vb-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--cream); border: 1px solid var(--hairline);
+  color: var(--ink-2); font-size: var(--t-12); font-weight: 600;
+  padding: 6px 12px; border-radius: var(--r-pill);
+}
+
+/* =====================================================================
+   Generic layout
+   ===================================================================== */
+.vb-screen {
+  padding: 0 var(--pad-screen) 100px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.vb-title {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-28); line-height: 1.05;
+  letter-spacing: -0.025em; color: var(--ink);
+}
+.vb-title .serif {
+  font-family: var(--f-serif); font-style: italic; font-weight: 400;
+  color: var(--saffron-dk);
+}
+.vb-eyebrow {
+  font-family: var(--f-ui); font-weight: 700;
+  font-size: var(--t-12); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--saffron-dk);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.vb-eyebrow::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--saffron); box-shadow: 0 0 0 4px var(--saffron-tint);
+}
+.vb-sub {
+  color: var(--ink-soft); font-size: var(--t-14); line-height: 1.45;
+  max-width: 38ch;
+}
+.vb-divider {
+  height: 1px; background: var(--hairline);
+}
+.vb-row { display: flex; align-items: center; gap: 8px; }
+.vb-col { display: flex; flex-direction: column; gap: 8px; }
+
+/* =====================================================================
+   Buttons
+   ===================================================================== */
+.vb-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none; cursor: pointer; font-family: var(--f-ui); font-weight: 600;
+  padding: 14px 20px; border-radius: var(--r-pill);
+  font-size: var(--t-14); transition: all 0.18s var(--ease);
+  min-height: 48px;
+}
+.vb-btn--primary {
+  background: var(--ink); color: var(--paper);
+  box-shadow: 0 6px 18px rgba(21, 23, 42, 0.22);
+}
+.vb-btn--primary:hover { transform: translateY(-1px); }
+
+.vb-btn--saffron {
+  background: var(--saffron); color: var(--cream);
+  box-shadow: 0 6px 18px rgba(220, 122, 58, 0.36);
+}
+.vb-btn--saffron:hover { background: var(--saffron-dk); }
+
+.vb-btn--ghost {
+  background: transparent; color: var(--ink-2);
+  border: 1px solid var(--hairline);
+}
+.vb-btn--soft {
+  background: var(--cream); color: var(--ink-2);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1px 0 var(--hairline);
+}
+.vb-btn--block { width: 100%; }
+.vb-btn--lg { padding: 18px 22px; font-size: var(--t-16); }
+
+/* =====================================================================
+   Cards — soft, outlined, raised, paper
+   ===================================================================== */
+.vb-card {
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: var(--pad-card);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset,
+              0 1px 2px rgba(21,23,42,0.04),
+              0 6px 16px rgba(21,23,42,0.04);
+}
+[data-card="outlined"] .vb-card { box-shadow: none; }
+[data-card="raised"] .vb-card { box-shadow: 0 10px 24px rgba(21,23,42,0.10); border-color: transparent; }
+[data-card="paper"] .vb-card {
+  background: var(--paper-soft); border: 1px dashed var(--hairline);
+  box-shadow: none;
+}
+[data-card="pill"] .vb-card { border-radius: var(--r-xl); }
+
+/* =====================================================================
+   Onboarding hero (story-card)
+   ===================================================================== */
+.vb-hero {
+  position: relative;
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 28px 24px 28px;
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(120% 80% at 80% 0%, var(--saffron-tint) 0%, transparent 50%),
+    radial-gradient(120% 80% at 20% 100%, var(--sage-tint) 0%, transparent 50%),
+    var(--cream);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+}
+.vb-hero-art {
+  position: absolute; top: 0; left: 0; right: 0; height: 60%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* =====================================================================
+   Stimulus card (the big word + image)
+   ===================================================================== */
+.vb-stim {
+  background: var(--cream);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--hairline);
+  padding: 24px 20px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.vb-stim::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(60% 50% at 50% 0%, var(--saffron-tint), transparent 60%);
+  opacity: 0.5; pointer-events: none;
+}
+.vb-stim-emoji {
+  font-size: 96px; line-height: 1;
+  filter: drop-shadow(0 8px 18px rgba(21,23,42,0.10));
+  position: relative; z-index: 1;
+  margin-bottom: 14px;
+}
+.vb-stim-word {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-48); line-height: 1; letter-spacing: -0.04em;
+  color: var(--ink); position: relative; z-index: 1;
+  font-feature-settings: "ss01" on;
+}
+.vb-stim-translit {
+  margin-top: 8px;
+  font-family: var(--f-serif); font-style: italic;
+  color: var(--ink-soft); font-size: var(--t-16);
+  position: relative; z-index: 1;
+}
+
+/* stim variants */
+[data-stim="fullbleed"] .vb-stim {
+  background:
+    radial-gradient(80% 70% at 50% 30%, var(--paper-soft), var(--cream) 70%);
+}
+[data-stim="minimal"] .vb-stim {
+  background: transparent; border: none; padding: 8px;
+}
+[data-stim="minimal"] .vb-stim::after { display: none; }
+
+/* =====================================================================
+   Big mic / breathing button
+   ===================================================================== */
+.vb-mic-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.vb-mic {
+  width: 88px; height: 88px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: var(--saffron);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow:
+    0 0 0 8px rgba(220, 122, 58, 0.10),
+    0 0 0 16px rgba(220, 122, 58, 0.05),
+    0 12px 28px rgba(220, 122, 58, 0.45);
+  font-size: 30px;
+}
+.vb-mic::before {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px dashed var(--saffron);
+  animation: spin 16s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.vb-mic-label {
+  font-size: var(--t-13); font-weight: 600; color: var(--ink-2);
+}
+
+/* listening state */
+.vb-mic.listening {
+  background: var(--coral);
+  box-shadow:
+    0 0 0 8px rgba(216, 89, 90, 0.16),
+    0 0 0 16px rgba(216, 89, 90, 0.08),
+    0 0 0 24px rgba(216, 89, 90, 0.04),
+    0 12px 28px rgba(216, 89, 90, 0.45);
+}
+.vb-mic.listening::after {
+  content: ''; position: absolute; inset: -8px; border-radius: 50%;
+  border: 2px solid var(--coral); opacity: 0.4;
+  animation: pulse-out 1.6s ease-out infinite;
+}
+@keyframes pulse-out {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Waveform inline */
+.vb-wave {
+  display: flex; align-items: center; gap: 3px; height: 28px;
+}
+.vb-wave i {
+  display: block; width: 3px; background: currentColor; border-radius: 2px;
+  opacity: 0.55;
+}
+
+/* =====================================================================
+   Outcome bar (Produced / Approximated / Not attempted)
+   ===================================================================== */
+.vb-outcomes {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+}
+.vb-outcome {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: var(--cream);
+  border: 1.5px solid var(--hairline);
+  padding: 14px 6px;
+  border-radius: var(--r-md);
+  font-size: var(--t-13); font-weight: 600;
+  cursor: pointer; transition: all 0.18s var(--ease);
+}
+.vb-outcome[data-tone="ok"] { color: var(--sage-dk); border-color: var(--sage-tint); background: rgba(94,135,112,0.06); }
+.vb-outcome[data-tone="mid"] { color: var(--saffron-dk); border-color: var(--saffron-tint); background: rgba(220,122,58,0.06); }
+.vb-outcome[data-tone="no"] { color: var(--coral); border-color: var(--coral-tint); background: rgba(216,89,90,0.06); }
+.vb-outcome .glyph {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: currentColor;
+}
+.vb-outcome .glyph svg { color: var(--cream); }
+
+/* =====================================================================
+   Module card (therapy hub)
+   ===================================================================== */
+.vb-mod {
+  display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center;
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--hairline);
+  padding: 16px;
+  cursor: pointer; transition: all 0.18s var(--ease);
+  text-align: left;
+}
+.vb-mod--recommended {
+  background:
+    linear-gradient(135deg, rgba(220,122,58,0.10), rgba(94,135,112,0.06)),
+    var(--cream);
+  border-color: var(--saffron);
+  box-shadow: 0 8px 22px rgba(220,122,58,0.18);
+}
+.vb-mod-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  background: var(--paper-soft); border: 1px solid var(--hairline);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; flex-shrink: 0;
+}
+.vb-mod-icon.cilt { background: var(--saffron-tint); color: var(--saffron-dk); }
+.vb-mod-icon.cueing { background: var(--sage-tint); color: var(--sage-dk); }
+.vb-mod-icon.comp { background: rgba(110,150,182,0.20); color: #3D6280; }
+.vb-mod-icon.gesture { background: rgba(139,90,142,0.18); color: var(--plum); }
+.vb-mod-title {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-16); color: var(--ink);
+}
+.vb-mod-desc {
+  font-size: var(--t-12); color: var(--ink-soft); line-height: 1.4;
+  margin-top: 2px;
+}
+.vb-mod-arrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--paper-soft); border: 1px solid var(--hairline);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft);
+}
+.vb-rec-tag {
+  position: absolute; top: -8px; right: 10px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ink); color: var(--paper);
+  padding: 3px 8px; border-radius: var(--r-pill);
+}
+
+/* =====================================================================
+   Language tile
+   ===================================================================== */
+.vb-langs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.vb-lang {
+  position: relative;
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--hairline);
+  padding: 16px 14px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  cursor: pointer; min-height: 86px;
+  transition: all 0.18s var(--ease);
+}
+.vb-lang--sel {
+  background: var(--ink); color: var(--paper);
+  border-color: var(--ink);
+}
+.vb-lang--sel .vb-lang-eng { color: rgba(242,234,219,0.7); }
+.vb-lang-native {
+  font-size: var(--t-22); font-weight: 700;
+  font-family: var(--f-indic);
+  line-height: 1.1;
+}
+.vb-lang-eng {
+  font-size: var(--t-11, 11px); font-weight: 600;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* =====================================================================
+   Aphasia tile
+   ===================================================================== */
+.vb-aph {
+  display: grid; grid-template-columns: 36px 1fr 18px;
+  align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border-radius: var(--r-md);
+  border: 1px solid var(--hairline);
+  cursor: pointer; text-align: left;
+}
+.vb-aph--sel {
+  background: var(--saffron-tint); border-color: var(--saffron);
+}
+.vb-aph-glyph {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--paper-soft);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-2);
+}
+.vb-aph-name {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-15); color: var(--ink);
+  line-height: 1.15;
+}
+.vb-aph-sub {
+  font-size: var(--t-11, 11px); color: var(--ink-soft); margin-top: 1px;
+}
+
+/* =====================================================================
+   Cueing rungs / ladder
+   ===================================================================== */
+.vb-ladder {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px; background: var(--cream);
+  border-radius: var(--r-lg); border: 1px solid var(--hairline);
+}
+.vb-rung {
+  display: grid; grid-template-columns: 28px 1fr;
+  align-items: flex-start; gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  border: 1px dashed var(--hairline);
+  background: var(--paper-soft);
+  opacity: 0.45;
+}
+.vb-rung.active {
+  opacity: 1; border-style: solid; border-color: var(--ink);
+  background: var(--cream); box-shadow: 0 4px 12px rgba(21,23,42,0.08);
+}
+.vb-rung.past {
+  opacity: 0.9; border-style: solid; border-color: var(--hairline);
+}
+.vb-rung-step {
+  width: 28px; height: 28px; border-radius: 50%;
+  font-size: 11px; font-weight: 700; font-family: var(--f-mono);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper); color: var(--ink-soft);
+  border: 1px solid var(--hairline);
+}
+.vb-rung.active .vb-rung-step {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.vb-rung.past .vb-rung-step {
+  background: var(--sage); color: var(--cream); border-color: var(--sage);
+}
+.vb-rung-label {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.vb-rung-text {
+  font-size: var(--t-13); color: var(--ink-2); line-height: 1.4; margin-top: 3px;
+}
+.vb-rung.cue-gesture .vb-rung-step { color: var(--plum); }
+.vb-rung.cue-semantic .vb-rung-step { color: var(--lavender); }
+.vb-rung.cue-phonological .vb-rung-step { color: var(--sky); }
+.vb-rung.cue-model .vb-rung-step { color: var(--saffron-dk); }
+.vb-rung.active.cue-gesture { border-color: var(--plum); }
+.vb-rung.active.cue-semantic { border-color: var(--lavender); }
+.vb-rung.active.cue-phonological { border-color: var(--sky); }
+.vb-rung.active.cue-model { border-color: var(--saffron); }
+
+/* =====================================================================
+   Comprehension grid
+   ===================================================================== */
+.vb-comp-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.vb-comp-opt {
+  aspect-ratio: 1;
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  border: 2px solid var(--hairline);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px;
+  cursor: pointer;
+}
+.vb-comp-opt.correct {
+  border-color: var(--sage); background: rgba(94,135,112,0.12);
+  box-shadow: 0 0 0 4px rgba(94,135,112,0.18);
+}
+
+/* =====================================================================
+   Voice bank
+   ===================================================================== */
+.vb-voice-row {
+  display: grid; grid-template-columns: 40px 1fr auto;
+  align-items: center; gap: 12px;
+  background: var(--cream); border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.vb-voice-row.recorded {
+  background:
+    linear-gradient(90deg, rgba(94,135,112,0.10), transparent 80%),
+    var(--cream);
+  border-color: var(--sage-tint);
+}
+.vb-voice-emoji { font-size: 26px; }
+.vb-voice-word {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-15); color: var(--ink);
+}
+.vb-voice-meta {
+  font-size: var(--t-12); color: var(--ink-soft);
+  display: flex; align-items: center; gap: 6px; margin-top: 2px;
+}
+.vb-voice-action {
+  background: var(--ink); color: var(--paper);
+  border: none; border-radius: var(--r-pill);
+  padding: 6px 12px; font-size: var(--t-12); font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+}
+.vb-voice-action--play {
+  background: transparent; color: var(--sage-dk); border: 1px solid var(--sage);
+}
+
+.vb-vbring-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.vb-vbring {
+  position: relative; width: 84px; height: 84px;
+  display: flex; align-items: center; justify-content: center;
+}
+.vb-vbring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.vb-vbring-num {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--f-display); font-weight: 600;
+}
+.vb-vbring-num b { font-size: var(--t-20); line-height: 1; color: var(--ink); }
+.vb-vbring-num span { font-size: var(--t-11, 11px); color: var(--ink-soft); }
+
+/* =====================================================================
+   Cue chips and ASR feedback
+   ===================================================================== */
+.vb-cue-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: var(--r-pill);
+  font-size: var(--t-12); font-weight: 600;
+  background: var(--paper-soft); border: 1px solid var(--hairline);
+}
+.vb-asr {
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--hairline);
+  background: var(--paper-soft);
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.vb-asr.ok { border-color: var(--sage); background: rgba(94,135,112,0.10); }
+.vb-asr-label {
+  font-size: var(--t-11, 11px); color: var(--ink-soft);
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+}
+.vb-asr-q {
+  font-family: var(--f-serif); font-style: italic; font-size: var(--t-18);
+  color: var(--ink);
+}
+.vb-asr-meta {
+  font-size: var(--t-11, 11px); color: var(--ink-soft);
+  font-family: var(--f-mono);
+}
+
+/* =====================================================================
+   Progress dashboard
+   ===================================================================== */
+.vb-stat {
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.vb-stat-label {
+  font-size: var(--t-11, 11px); color: var(--ink-soft);
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+}
+.vb-stat-value {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-22); color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.vb-bar {
+  height: 22px;
+  background: var(--paper-soft);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--hairline);
+}
+.vb-bar-fill {
+  height: 100%; border-radius: var(--r-pill);
+  display: flex; align-items: center; padding: 0 8px;
+  color: var(--cream); font-weight: 700; font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Constellation/tree of words */
+.vb-tree {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-lg);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.vb-tree h4 { color: var(--paper); font-size: var(--t-12); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; opacity: 0.7; }
+
+/* =====================================================================
+   Session complete celebration
+   ===================================================================== */
+.vb-celebrate {
+  flex: 1;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 40px 24px;
+  background:
+    radial-gradient(60% 50% at 50% 30%, var(--saffron-tint), transparent 70%),
+    var(--cream);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--hairline);
+  gap: 16px;
+}
+.vb-celebrate-mantra {
+  font-family: var(--f-serif); font-style: italic;
+  font-size: var(--t-22); line-height: 1.3; color: var(--ink-2);
+  max-width: 26ch;
+}
+
+.vb-sargam {
+  display: flex; align-items: flex-end; gap: 4px; height: 56px;
+}
+.vb-sargam div {
+  flex: 1; background: var(--saffron); border-radius: 4px 4px 0 0;
+  opacity: 0.85;
+}
+
+/* =====================================================================
+   Clinician dashboard
+   ===================================================================== */
+.vb-clin-tab {
+  display: flex; gap: 4px; padding: 4px;
+  background: var(--paper-soft); border-radius: var(--r-pill);
+  border: 1px solid var(--hairline);
+}
+.vb-clin-tab button {
+  background: transparent; border: none;
+  flex: 1; padding: 8px 12px; border-radius: var(--r-pill);
+  font-size: var(--t-12); font-weight: 600; color: var(--ink-soft);
+  cursor: pointer;
+}
+.vb-clin-tab button.on {
+  background: var(--ink); color: var(--paper);
+}
+
+.vb-patient-row {
+  display: grid; grid-template-columns: 36px 1fr auto; gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--cream); border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+}
+.vb-patient-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--saffron); color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-display); font-weight: 600; font-size: var(--t-13);
+}
+.vb-patient-name {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-14); color: var(--ink);
+}
+.vb-patient-meta {
+  font-size: var(--t-11, 11px); color: var(--ink-soft);
+}
+.vb-patient-trend {
+  display: flex; align-items: center; gap: 4px;
+  font-size: var(--t-12); font-weight: 700;
+  color: var(--sage-dk); font-family: var(--f-mono);
+}
+
+/* sparkline */
+.vb-spark {
+  height: 24px; display: flex; align-items: flex-end; gap: 2px;
+}
+.vb-spark i {
+  flex: 1; background: currentColor; border-radius: 1px;
+  opacity: 0.8;
+}
+
+/* =====================================================================
+   Section header inside a card list
+   ===================================================================== */
+.vb-section-h {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 8px;
+}
+.vb-section-h h3 {
+  font-family: var(--f-display); font-weight: 600;
+  font-size: var(--t-16); color: var(--ink); letter-spacing: -0.015em;
+}
+.vb-section-h span {
+  font-size: var(--t-11, 11px); color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* tiny pill */
+.vb-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: var(--r-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.vb-pill--sage { background: var(--sage-tint); color: var(--sage-dk); border-color: transparent; }
+.vb-pill--saffron { background: var(--saffron-tint); color: var(--saffron-dk); border-color: transparent; }
+.vb-pill--ink { background: var(--ink); color: var(--paper); border-color: transparent; }
+
+/* Density tweak */
+[data-density="cozy"] {
+  --pad-card: 14px;
+  --pad-screen: 14px;
+  --gap-card: 10px;
+}
+[data-density="spacious"] {
+  --pad-card: 26px;
+  --pad-screen: 24px;
+  --gap-card: 20px;
+}
+
+/* font tweak */
+[data-font="serif"] { --f-display: 'Instrument Serif', Georgia, serif; }
+[data-font="grotesk"] { --f-display: 'Space Grotesk', system-ui, sans-serif; }
+
+/* =====================================================================
+   Production React runtime shell
+   ===================================================================== */
+.vb-shell {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(220, 122, 58, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 100%, rgba(94, 135, 112, 0.16), transparent 34%),
+    #E9DFCB;
+}
+
+.vb-shell .vb {
+  min-height: 100vh;
+  height: 100vh;
+  max-width: 430px;
+  box-shadow:
+    0 0 0 1px rgba(21, 23, 42, 0.08),
+    0 28px 80px rgba(21, 23, 42, 0.22);
+}
+
+.vb-shell .vb-screen {
+  min-height: calc(100vh - 68px);
+}
+
+.vb-shell button:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+.vb-home-plan {
+  width: 100%;
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vb-center-card,
+.vb-listen-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 18px;
+}
+
+.vb-listen-card {
+  padding: 22px;
+}
+
+.vb-mic-dark {
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow:
+    0 0 0 8px rgba(21, 23, 42, 0.06),
+    0 12px 28px rgba(21, 23, 42, 0.20);
+}
+
+.vb-wave-animate {
+  animation: vb-wave-pulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes vb-wave-pulse {
+  from { transform: scaleY(0.65); opacity: 0.48; }
+  to { transform: scaleY(1.14); opacity: 0.9; }
+}
+
+.vb-comp-opt {
+  position: relative;
+}
+
+.vb-comp-opt.wrong {
+  border-color: var(--coral);
+  background: rgba(216, 89, 90, 0.10);
+}
+
+.vb-correct-dot {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vb-mini-label {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.vb-plus-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--paper-soft);
+  border: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+}
+
+.vb-gesture-note {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--plum);
+  border-radius: 8px;
+  background: rgba(139, 90, 142, 0.06);
+  color: var(--ink-2);
+  font-size: var(--t-13);
+}
+
+.vb-ai-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(220, 122, 58, 0.10), var(--cream));
+  border-color: var(--saffron-tint);
+  color: var(--saffron-dk);
+}
+
+.vb-mini-stim {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.vb-icon-button {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 999px;
+}
+
+.vb-complete-value {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: var(--t-22);
+}
+
+.vb-complete-label {
+  font-size: var(--t-11);
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vb-complete-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--hairline);
+}
+
+.vb-trend-up {
+  color: var(--sage-dk);
+  font-family: var(--f-mono);
+  font-size: var(--t-11);
+  font-weight: 700;
+}
+
+.vb-trend-down {
+  color: var(--coral);
+  font-family: var(--f-mono);
+  font-size: var(--t-11);
+  font-weight: 700;
+}
+
+.vb-cue-dist-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 50px;
+  align-items: center;
+  gap: 8px;
+}
+
+.vb-cue-dist-row span {
+  font-size: var(--t-12);
+  font-weight: 600;
+}
+
+.vb-cue-dist-row span:last-child {
+  color: var(--ink-soft);
+  font-family: var(--f-mono);
+  font-size: var(--t-11);
+  text-align: right;
+}
+
+.vb-chip-dark {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+}
+
+.vb-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.vb-stat-tight {
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.vb-patient-card {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  position: relative;
+}
+
+.vb-category-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 6px;
+  scrollbar-width: none;
+}
+
+.vb-category-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.vb-category-pill {
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.vb-category-pill.on {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: transparent;
+}
+
+.vb-stimulus-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  padding: 14px;
+}
+
+.vb-stimulus-row-emoji {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--paper-soft);
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.vb-stimulus-row-body {
+  min-width: 0;
+}
+
+.vb-stimulus-row-meta {
+  color: var(--ink-soft);
+  font-size: var(--t-11);
+  margin-top: 3px;
+}
+
+.vb-stimulus-cues {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.vb-stimulus-cues span {
+  padding: 7px 9px;
+  border-radius: 10px;
+  background: var(--paper-soft);
+  color: var(--ink-2);
+  font-size: var(--t-11);
+  line-height: 1.35;
+}
+
+@media (max-width: 480px) {
+  .vb-shell .vb {
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+  }
+}
