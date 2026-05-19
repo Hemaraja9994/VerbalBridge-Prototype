@@ -1,18 +1,13 @@
 import type { LangCode, LanguageStimuli } from '../../types';
-import en from './en.json';
-import kn from './kn.json';
-import hi from './hi.json';
-import ml from './ml.json';
-import ta from './ta.json';
-import te from './te.json';
+import { buildStimuliForLanguage } from './expandedClinicalBank';
 
 const REGISTRY: Record<LangCode, LanguageStimuli> = {
-  en: en as LanguageStimuli,
-  kn: kn as LanguageStimuli,
-  hi: hi as LanguageStimuli,
-  ml: ml as LanguageStimuli,
-  ta: ta as LanguageStimuli,
-  te: te as LanguageStimuli,
+  en: buildStimuliForLanguage('en'),
+  kn: buildStimuliForLanguage('kn'),
+  hi: buildStimuliForLanguage('hi'),
+  ml: buildStimuliForLanguage('ml'),
+  ta: buildStimuliForLanguage('ta'),
+  te: buildStimuliForLanguage('te'),
 };
 
 export function getStimuli(lang: LangCode): LanguageStimuli {

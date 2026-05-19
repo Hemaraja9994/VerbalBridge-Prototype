@@ -23,6 +23,12 @@ export type VoiceSource = 'familiar' | 'tts' | 'none';
 
 export interface StimulusItem {
   id: string;
+  conceptTag?: string;
+  category?: string;
+  subCategory?: string;
+  severityGrade?: 'Severe' | 'Moderate' | 'Mild';
+  lesionProfileTarget?: string;
+  culturalRelevance?: boolean;
   word: string;
   translit?: string;
   emoji: string;

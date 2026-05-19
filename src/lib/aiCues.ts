@@ -125,7 +125,7 @@ export async function fetchPersonalisedCue(
     // Sanitize: drop any leading/trailing quotes or label noise the model might add.
     const cleaned = raw
       .replace(/^["'`]+|["'`]+$/g, '')
-      .replace(/^(Cue|Hint|Output|Semantic cue|Gesture)[:\-]\s*/i, '')
+      .replace(/^(Cue|Hint|Output|Semantic cue|Gesture)[:-]\s*/i, '')
       .trim();
     if (cleaned.length < 3) throw new Error('empty response');
     writeCache(key, cleaned);
